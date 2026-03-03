@@ -1,0 +1,53 @@
+.inputNewsLetter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @include resize(gap, 8);
+  width: 100%;
+  &__label {
+    font-family: $font-default;
+    color: $color-white;
+    font-weight: 700;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+  }
+  &__element {
+    width: 100%;
+    height: 100%;
+    font-weight: 500;
+    border: 1px solid $color-gray-400;
+    background: $color-gray-300;
+    color: $color-gray-600;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+    @include resize(border-radius, 100);
+    @include resize(padding-block, 16);
+    @include resize(padding-inline, 10);
+    &::placeholder {
+      color: $color-gray-600;
+      @include resize(font-size, $b2-fs);
+      @include resize(line-height, $b2-lh);
+    }
+
+    &:focus-visible {
+      border: 1px solid $color-focus;
+    }
+  }
+  &__helpText {
+    color: $color-error;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+  }
+  &--invalid {
+    .inputNewsLetter__label {
+      &--invalid {
+        color: $color-error;
+      }
+    }
+    .inputNewsLetter__element {
+      border-color: $color-error;
+    }
+  }
+}

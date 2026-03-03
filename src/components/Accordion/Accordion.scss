@@ -1,0 +1,75 @@
+.accordion {
+  overflow: hidden;
+  position: relative;
+  transition: max-height 270ms ease-out;
+  @include resize(max-height, 60);
+
+  &--active {
+    transition: max-height 270ms ease-in;
+    @include resize(max-height, 500);
+  }
+
+  &__container {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    background-color: $color-white;
+    border: 1px solid $color-gray-40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include resize(padding-block, 16);
+    @include resize(padding-inline, 24);
+    @include resize(border-radius, 8);
+    @include resize(height, 60);
+  }
+
+  &__title {
+    pointer-events: none;
+    font-weight: 700;
+    @include resize(font-size, $s2-fs);
+    @include resize(line-height, $s2-lh);
+  }
+  &__description {
+    font-weight: 500;
+    color: $color-white;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+  }
+
+  &__descriptionContainer {
+    opacity: 0;
+    background-color: $color-tertiary;
+    transition: opacity 150ms ease-out;
+
+    @include resize(margin-top, -5);
+    @include resize(padding-block, 32);
+    @include resize(padding-inline, 24);
+    @include resize(border-bottom-left-radius, 8);
+    @include resize(border-bottom-right-radius, 8);
+
+    &--active {
+      opacity: 1;
+      transition: opacity 150ms ease-in;
+    }
+  }
+
+  &__icon {
+    background-image: url("/assets/img/icons/plus.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: background-image 150ms ease-out;
+
+    @include resize(height, 24);
+    @include resize(width, 24);
+
+    &--active {
+      background-image: url("/assets/img/icons/minus.svg");
+      transition: background-image 150ms ease-in;
+    }
+  }
+}

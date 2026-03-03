@@ -1,0 +1,166 @@
+@mixin res-hd-plus {
+  @media (max-width: 1680px) {
+    @content;
+  }
+}
+
+@mixin res-hd {
+  @media (max-width: 1500px) {
+    @content;
+  }
+  @media screen and (min-resolution: 120dpi) and (min-width: 1536px) {
+    @content;
+  }
+}
+
+@mixin res-mac {
+  @media (max-width: 1370px) {
+    @content;
+  }
+}
+@mixin res-xl {
+  @media (max-width: 1281px) {
+    @content;
+  }
+}
+
+@mixin res-lg {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin res-md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin res-sm {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin res-ios {
+  @media (max-width: 420px) {
+    @content;
+  }
+}
+
+@mixin res-mob {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin res-small {
+  @media (max-width: 360px) {
+    @content;
+  }
+}
+
+//  Specific resolutions
+@mixin res-1920x1080 {
+  @media (max-width: 1921px) {
+    @media (max-height: 1081px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-1680x1050 {
+  @media (max-width: 1681px) {
+    @media (max-height: 1051px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-1600x900 {
+  @media (max-width: 1601px) {
+    @media (max-height: 901px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-1440x900 {
+  @media (max-width: 1441px) {
+    @media (max-height: 901px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-1366x768 {
+  @media (max-width: 1367px) {
+    @media (max-height: 769px) {
+      @content;
+    }
+  }
+}
+@mixin res-1366x640 {
+  @media (max-width: 1367px) {
+    @media (max-height: 641px) {
+      @content;
+    }
+  }
+}
+@mixin res-1280x1024 {
+  @media (max-width: 1281px) {
+    @media (max-height: 1025px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-1280x800 {
+  @media (max-width: 1281px) {
+    @media (max-height: 801px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-1024x768 {
+  @media (max-width: 1025px) {
+    @media (max-height: 769px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-768x1024 {
+  @media (max-width: 769px) {
+    @media (max-height: 1025px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-320x480 {
+  @media (max-width: 321px) {
+    @media (max-height: 481px) {
+      @content;
+    }
+  }
+}
+
+@mixin res-full-hd-125 {
+  @media screen and (min-resolution: 120dpi) and (min-width: 1536px) {
+    @content;
+  }
+}
+
+@mixin res-full {
+  @media (max-width: 1919px) {
+    @content;
+  }
+}
+
+@mixin res-full-fixo {
+  @media (min-width: 1900px) {
+    @content;
+  }
+}

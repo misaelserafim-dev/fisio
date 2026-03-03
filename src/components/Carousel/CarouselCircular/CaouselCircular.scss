@@ -1,0 +1,76 @@
+.carouselCircular {
+    position: relative;
+    width: 100%;
+    height: var(--height);
+    --origin: calc(var(--height) * 5);
+    @include resize(--height, 350, 184);
+
+    &__items {
+        transform-origin: center var(--origin);
+        transform: rotate(0rad);
+    }
+
+    &__handle {
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        height: var(--height);
+        @include resize(bottom, -50, 0);
+    }
+
+    &__center {
+        position: absolute;
+        height: 100vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__item {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: var(--height);
+        transform-origin: center var(--origin);
+    }
+
+    &__buttonsContainer {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(var(--height) * 1.5);
+    }
+
+    &__button {
+        position: absolute;
+        cursor: pointer;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        background-image: url("/icons/chevron-right.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        @include resize(width, 40);
+        @include resize(height, 40);
+        @include resize(bottom, 120, 75);
+        &:hover {
+            transition: background-image 0.15s ease-in;
+            background-image: url("/icons/chevron-right.svg");
+        }
+
+        &--prev {
+            rotate: 180deg;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include resize(margin-right, 50);
+        }
+
+        &--next {
+            @include resize(margin-left, 50);
+        }
+    }
+}

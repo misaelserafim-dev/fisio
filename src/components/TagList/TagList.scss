@@ -1,0 +1,46 @@
+.tagList {
+  &__tagContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include resize(gap, 8);
+    @include res-lg {
+      justify-content: flex-start;
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+  &__tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    border: 1px solid $color-primary-100;
+    @include resize(border-radius, 4);
+    @include resize(padding-block, 8);
+    @include resize(padding-inline, 16);
+    transition: background-color 150ms ease-out;
+    @include res-md {
+      &:first-child {
+        @include resize(margin-left, 88, 16);
+      }
+      &:last-child {
+        @include resize(margin-right, 88, 16);
+      }
+    }
+    &:hover,
+    &--selected {
+      transition: background-color 350ms ease-in;
+      background-color: $color-primary-100;
+    }
+  }
+  &__tagTitle {
+    @include resize(font-size, $l3-fs);
+    @include resize(line-height, $l3-lh);
+    text-transform: uppercase;
+    color: $color-black;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}

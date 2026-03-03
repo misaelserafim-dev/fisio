@@ -1,0 +1,99 @@
+.popUp {
+    position: fixed;
+    z-index: 15;
+    display: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    &--active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba($color-black, 0.5);
+    }
+
+    &__container {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        border-radius: 16px;
+        background-color: $color-secondary-100;
+
+        @include resize(gap, 32, 24);
+        @include resize(padding, 24);
+        @include resize(width, unset, 90vw);
+        @include resize(max-width, 550);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        @include resize(gap, 16, 8);
+    }
+
+    &__titleContainer {
+        text-wrap-style: balance;
+    }
+
+    &__title {
+        font-weight: 700;
+        text-align: center;
+        color: $color-gray-100;
+        @include resize(font-size, $h3-fs, $b1-fs);
+        @include resize(line-height, $h3-lh, $b1-lh);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        @include resize(gap, 32, 16);
+    }
+
+    &__iconContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1000px;
+        background-color: $color-gray-100;
+        @include resize(width, 80);
+        @include resize(height, 80);
+    }
+
+    &__icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0) saturate(100%) invert(42%) sepia(63%) saturate(3269%) hue-rotate(112deg) brightness(104%)
+            contrast(84%);
+    }
+
+    &__descriptionContainer {
+        text-align: center;
+        text-wrap-style: balance;
+    }
+
+    &__description {
+        font-weight: 400;
+        color: $color-gray-100;
+        @include resize(font-size, $b1-fs, $b2-fs);
+        @include resize(line-height, $b1-lh, $b2-lh);
+    }
+}

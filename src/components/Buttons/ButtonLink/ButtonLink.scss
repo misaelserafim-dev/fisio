@@ -1,0 +1,127 @@
+.buttonLink {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; 
+    transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    text-decoration: none;
+    border: none;
+    background: none;
+    @include resize(gap, 14);
+
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+
+    &__text {
+        text-align: center;
+        white-space: nowrap;
+        transition: inherit;
+        position: relative;
+        z-index: 5; 
+        @include button-font(400); 
+        color: $color-white;
+    }
+
+    // --- ESTRUTURA PILL COMPARTILHADA ---
+    &__secondary, &__video {
+        border-radius: 1000px; 
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        @include resize(padding-block, 6);
+        @include resize(padding-left, 24, 20);
+        @include resize(padding-right, 6); 
+
+        &::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s; z-index: 1; }
+        &::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: 3; transition: all 0.4s ease; }
+
+        .buttonLink__iconContainer {
+            z-index: 5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include resize(width, 42, 36);
+            @include resize(height, 42, 36);
+            transition: all 0.4s ease;
+        }
+
+        &:hover {
+            transform: translateY(-2px) scale(1.02);
+            &::before { opacity: 1; }
+            // REMOVIDO: O background-color: white daqui para não afetar o secondary
+        }
+    }
+
+    // --- SECONDARY (Vidro Esmeralda - Ícone SEMPRE Esverdeado) ---
+    &__secondary {
+        background-color: rgba(darken($color-physio-primary, 25%), 0.5);
+        border: 1px solid rgba($color-physio-soft, 0.2);
+
+        &::before {
+            background: radial-gradient(250px circle at var(--mouse-x) var(--mouse-y), rgba($color-physio-soft, 0.25), transparent 60%);
+        }
+
+        .buttonLink__iconContainer {
+            background-color: rgba($color-physio-primary, 0.4); // Tom esverdeado inicial
+        }
+
+        .buttonLink__icon { 
+            filter: brightness(0) unquote("invert(100%)") !important; 
+        }
+
+        &:hover {
+            border-color: rgba($color-physio-soft, 0.5);
+            box-shadow: 0 0 25px rgba($color-physio-primary, 0.3);
+            
+            &::after {
+                background: radial-gradient(120px circle at var(--mouse-x) var(--mouse-y), $color-physio-soft, transparent 80%);
+            }
+
+            .buttonLink__iconContainer {
+                // Mantém ou escurece levemente o verde no hover, em vez de ficar branco
+                background-color: rgba($color-physio-primary, 0.6); 
+            }
+        }
+    }
+
+    // --- VIDEO (Vidro Claro - Ícone fica Branco no Hover) ---
+    &__video {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        &::before {
+            background: radial-gradient(250px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.15), transparent 60%);
+        }
+
+        .buttonLink__iconContainer {
+            background-color: $color-physio-light;
+        }
+
+        .buttonLink__icon { 
+            filter: brightness(0) saturate(100%) invert(43%) sepia(35%) saturate(836%) hue-rotate(120deg) brightness(91%) contrast(85%); 
+        }
+
+        &:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            
+            &::after {
+                background: radial-gradient(120px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.8), transparent 80%);
+            }
+
+            .buttonLink__iconContainer {
+                background-color: $color-white; // No vídeo faz sentido brilhar branco
+            }
+        }
+    }
+
+    &__icon { 
+        display: block;
+        object-fit: contain; 
+        transition: filter 0.3s ease;
+        @include resize(width, 16, 14);
+        @include resize(height, 16, 14);
+    }
+}

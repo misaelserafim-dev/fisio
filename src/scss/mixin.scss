@@ -1,0 +1,153 @@
+@use "sass:math"; // Importante para as divisões modernas
+@use "@/scss/base/responsives.scss" as *;
+
+/* ==========================================================================
+   CONFIGURAÇÕES (VALORES: DESKTOP, MOBILE)
+   ========================================================================== */
+
+$h1-size: 48, 32;
+$h1-line: 56, 40;
+$h1-ls: -1;
+
+$h2-size: 36, 28;
+$h2-line: 44, 34;
+$h2-ls: -0.5;
+
+$h3-size: 28, 24;
+$h3-line: 36, 30;
+$h3-ls: -0.3;
+
+$p-size: 16, 14;
+$p-line: 24, 22;
+
+$maxResDesktop: 2560;
+$minReDesktop: 1366;
+$proporcionalidade: 0.75;
+
+/* =========================
+   FUNÇÕES DE CONVERSÃO
+   ========================= */
+
+@function toRem($value) {
+  @if type-of($value) == "number" and unitless($value) {
+    // Usando math.div para evitar o Warning de depreciação
+    @return math.div($value, 16) * 1rem;
+  }
+  @return $value;
+}
+
+@function pCalc($startValue) {
+  @if type-of($startValue) == "number" and not unitless($startValue) {
+    @return $startValue;
+  }
+
+  $startRem: toRem($startValue);
+  $minWidthRem: toRem($minReDesktop);
+  
+  // Corrigindo todas as divisões para o padrão math.div
+  $calcProporcao: math.div($startValue, $proporcionalidade);
+  $diffRes: $maxResDesktop - $minReDesktop;
+
+  @return calc(
+    #{$startRem} + (#{$calcProporcao} - #{$startValue}) * ((100vw - #{$minWidthRem}) / #{$diffRes})
+  );
+}
+
+/* =========================
+   MIXIN RESIZE
+   ========================= */
+
+@mixin resize($prop, $startValue, $finalValue: null) {
+  #{$prop}: pCalc($startValue);
+
+  @include res-md {
+    @if $finalValue != null {
+      #{$prop}: toRem($finalValue);
+    } @else {
+      #{$prop}: toRem($startValue);
+    }
+  }
+}
+
+/* ============================= */
+/* TIPOGRAFIA MIXINS            */
+/* ============================= */
+
+$fw-regular: 400;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+@mixin h1 {
+  font-weight: $fw-bold;
+  letter-spacing: toRem($h1-ls);
+  @include resize(font-size, nth($h1-size, 1), nth($h1-size, 2));
+  @include resize(line-height, nth($h1-line, 1), nth($h1-line, 2));
+}
+
+@mixin h2 {
+  font-weight: $fw-semibold;
+  letter-spacing: toRem($h2-ls);
+  @include resize(font-size, nth($h2-size, 1), nth($h2-size, 2));
+  @include resize(line-height, nth($h2-line, 1), nth($h2-line, 2));
+}
+
+@mixin h3 {
+  font-weight: $fw-semibold;
+  letter-spacing: toRem($h3-ls);
+  @include resize(font-size, nth($h3-size, 1), nth($h3-size, 2));
+  @include resize(line-height, nth($h3-line, 1), nth($h3-line, 2));
+}
+
+@mixin description {
+  font-weight: $fw-regular;
+  letter-spacing: 0;
+  @include resize(font-size, nth($p-size, 1), nth($p-size, 2));
+  @include resize(line-height, nth($p-line, 1), nth($p-line, 2));
+}
+
+/* ============================= */
+/* NOVO MIXIN: BUTTON TEXT       */
+/* ============================= */
+
+$btn-size: 15, 14; // Desktop, Mobile
+$btn-line: 24, 20; // Desktop, Mobile
+
+@mixin button-text($weight: $fw-semibold) {
+  font-weight: $weight;
+  letter-spacing: toRem(0.5);
+  text-transform: none;
+  
+  @include resize(font-size, nth($btn-size, 1), nth($btn-size, 2));
+  @include resize(line-height, nth($btn-line, 1), nth($btn-line, 2));
+}
+
+@mixin button-font($weight: 400) {
+  font-weight: $weight;
+  letter-spacing: toRem(0.3);
+  @include resize(font-size, nth($btn-size, 1), nth($btn-size, 2));
+  @include resize(line-height, nth($btn-line, 1), nth($btn-line, 2));
+}
+/* =========================
+   LAYOUT
+   ========================= */
+
+@mixin container($type: null) {
+  @if $type == left {
+    padding-left: 0;
+    @include resize(padding-right, 88, 16);
+  } @else if $type == right {
+    padding-right: 0;
+    @include resize(padding-left, 88, 16);
+  } @else {
+    @include resize(padding-left, 88, 16);
+    @include resize(padding-right, 88, 16);
+  }
+}
+
+@mixin max-width($value: null) {
+  @if $value == null {
+    max-width: toRem($minReDesktop - 240); 
+  } @else {
+    @include resize(max-width, $value);
+  }
+}

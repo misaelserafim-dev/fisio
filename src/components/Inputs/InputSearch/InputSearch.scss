@@ -1,0 +1,51 @@
+.inputSearch {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  border-radius: $input-border-radius;
+  border: 1px solid $color-gray-300;
+  background: $color-gray-500;
+
+  @include resize(gap, 8);
+  @include resize(padding-block, $input-padding-block);
+  @include resize(padding-inline, $input-padding-inline);
+
+  &:focus-within {
+    border: 1px solid $color-tertiary-100;
+    outline: 1px solid $color-tertiary-100;
+  }
+
+  &:active {
+    border: 1px solid $color-tertiary-100;
+  }
+
+  &__input {
+    width: 100%;
+
+    color: $color-gray-100;
+    font-family: $font-default;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+
+    &::placeholder {
+      color: $color-gray-200;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: relative;
+    display: flex;
+
+    background: url("/icons/magnifying.svg") no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    filter: brightness(0) saturate(100%) invert(10%) sepia(17%) saturate(502%) hue-rotate(7deg) brightness(92%)
+      contrast(100%);
+
+    @include resize(width, 24);
+    @include resize(height, 24);
+  }
+}

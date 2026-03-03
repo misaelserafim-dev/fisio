@@ -1,0 +1,165 @@
+.buttonDefault {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: 270ms ease-in-out;
+  @include resize(gap, $button-gap);
+
+  &__primary {
+    background-color: $color-primary-200;
+    border: 1px solid $color-primary-200;
+    border-radius: $button-border-radius;
+
+    @include resize(padding-block, $button-padding-block);
+    @include resize(padding-inline, $button-padding-inline);
+
+    &:hover {
+      background-color: $color-primary-100;
+      border: 1px solid $color-primary-100;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  &__secondary {
+    background-color: $color-secondary-100;
+    border: 1px solid $color-secondary-100;
+    border-radius: $button-border-radius;
+
+    @include resize(padding-block, $button-padding-block);
+    @include resize(padding-inline, $button-padding-inline);
+
+    &:hover {
+      background-color: $color-secondary-200;
+      border: 1px solid $color-secondary-200;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  &__tertiary {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: $button-border-radius;
+
+    @include resize(padding-block, 12);
+    @include resize(padding-inline, 12);
+
+    .buttonDefault__icon {
+      filter: brightness(0) saturate(100%) invert(7%) sepia(9%) saturate(1639%) hue-rotate(7deg) brightness(93%)
+        contrast(92%);
+    }
+
+    &:hover {
+      .buttonDefault {
+        &__text--tertiary {
+          color: $color-primary-200;
+        }
+        &__icon {
+          filter: brightness(0) saturate(100%) invert(16%) sepia(94%) saturate(2415%) hue-rotate(342deg)
+            brightness(117%) contrast(89%);
+        }
+      }
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  &__quaternary {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: $button-border-radius;
+
+    @include resize(padding-block, 8);
+    @include resize(padding-inline, 16);
+
+    .buttonDefault__icon {
+      filter: brightness(0) saturate(100%) invert(7%) sepia(9%) saturate(1639%) hue-rotate(7deg) brightness(93%)
+        contrast(92%);
+    }
+
+    &:hover {
+      background-color: $color-secondary-200;
+      border: 1px solid $color-secondary-200;
+      .buttonDefault {
+        &__text--quaternary {
+          color: $color-gray-100;
+        }
+        &__icon {
+          filter: brightness(0) saturate(100%) invert(7%) sepia(9%) saturate(1639%) hue-rotate(7deg) brightness(93%)
+            contrast(92%);
+        }
+      }
+    }
+  }
+
+  &--circular {
+    width: auto;
+    border-radius: 1000px;
+    @include resize(padding, 8);
+  }
+
+  &__text {
+    text-align: center;
+    font-family: $font-default;
+    transition: 270ms ease-in-out;
+
+    &--primary {
+      color: $color-gray-500;
+      font-weight: 700;
+      @include resize(font-size, $b1-fs);
+      @include resize(line-height, $b1-lh);
+    }
+
+    &--secondary {
+      color: $color-gray-100;
+      font-weight: 700;
+      @include resize(font-size, $b1-fs);
+      @include resize(line-height, $b1-lh);
+    }
+
+    &--tertiary {
+      color: $color-gray-100;
+      font-weight: 600;
+      @include resize(font-size, $b2-fs);
+      @include resize(line-height, $b2-lh);
+    }
+
+    &--quaternary {
+      color: $color-gray-500;
+      font-weight: 600;
+      @include resize(font-size, $b2-fs);
+      @include resize(line-height, $b2-lh);
+    }
+  }
+
+  &__iconContainer {
+    display: block;
+    @include resize(width, 24);
+    @include resize(height, 24);
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 270ms ease-in-out;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-focus;
+    outline-offset: 2px;
+  }
+}

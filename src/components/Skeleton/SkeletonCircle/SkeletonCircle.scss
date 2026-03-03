@@ -1,0 +1,42 @@
+.skeletonCircle {
+    position: relative;
+    opacity: 0.7;
+
+    flex-shrink: 0;
+    border-radius: 100%;
+
+    animation: loadingSkeleton 1.5s infinite;
+    background: linear-gradient(90deg, $color-gray-700 50%, $color-gray-800 75%, $color-gray-700 100%);
+    background-size: 200% 100%;
+
+    // "32" | "40"  | "48" | "52 " | "56" | "88"
+    &--32 {
+        @include resize(width, 32);
+        @include resize(height, 32);
+    }
+
+    &--40 {
+        @include resize(width, 40);
+        @include resize(height, 40);
+    }
+
+    &--48 {
+        @include resize(width, 48);
+        @include resize(height, 48);
+    }
+
+    &--52 {
+        @include resize(width, 52);
+        @include resize(height, 52);
+    }
+
+    &--56 {
+        @include resize(width, 56);
+        @include resize(height, 56);
+    }
+
+    &--88 {
+        @include resize(width, 88);
+        @include resize(height, 88);
+    }
+}

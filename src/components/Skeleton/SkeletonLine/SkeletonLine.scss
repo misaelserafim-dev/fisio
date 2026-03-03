@@ -1,0 +1,13 @@
+.skeletonLine {
+    position: relative;
+    opacity: 0.7;
+    border-radius: 8px;
+
+    background: linear-gradient(90deg, $color-gray-300 50%, $color-gray-400 75%, $color-gray-300 100%);
+    background-size: 200% 100%;
+
+    animation: loadingSkeleton 1.5s infinite;
+
+    @include resize(width, 100%);
+    @include resize(height, 16);
+}

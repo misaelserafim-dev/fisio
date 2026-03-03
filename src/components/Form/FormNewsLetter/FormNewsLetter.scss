@@ -1,0 +1,67 @@
+.formNewsLetter {
+  width: 100%;
+
+  &__btnContainer {
+    width: auto;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    @include resize(margin-top, 0);
+    @include resize(margin-bottom, 8);
+    @include resize(gap, 24, 12);
+
+    @include res-md {
+      width: 100%;
+    }
+  }
+
+  &__container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    @include resize(gap, 16);
+    @include resize(margin-left, -16, 0);
+
+    @include res-md {
+      flex-direction: column;
+    }
+  }
+
+  &__resp {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+  }
+
+  &__responseSuccess,
+  &__responseError {
+    color: $color-white;
+    @include resize(padding-top, 16, 8);
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+  }
+
+  &__responseError {
+    color: $color-error;
+  }
+
+  .h-0,
+  .w-0 {
+    max-width: 0;
+    max-height: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .w-25,
+  .w-50,
+  .w-75,
+  .w-100 {
+    width: 100%;
+    @include res-md {
+      width: 100%;
+    }
+  }
+}

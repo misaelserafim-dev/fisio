@@ -1,0 +1,18 @@
+export type Icons =
+  | "alert"
+  | "check"
+  | "chevron-double-left"
+  | "chevron-double-right"
+  | "chevron-left"
+  | "chevron-right"
+  | "chevron-up"
+  | "chevron-down"
+  | "close-white"
+  | "close"
+  | "facebook"
+  | "instagram"
+  | "linkedin"
+  | "x-twitter"
+  | "youtube"
+  | "whatsapp"
+  | "magnifying";

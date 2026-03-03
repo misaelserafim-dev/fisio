@@ -1,0 +1,405 @@
+.headerMain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include resize(padding-block, 24, 16);
+  @include resize(padding-inline, 80, 16);
+
+  @include res-md {
+    justify-content: flex-end;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    border-radius: 1000px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.6);
+
+    transition: 0.25s ease-in-out;
+
+    @include resize(gap, 16);
+    @include resize(padding-block, 8);
+    @include resize(padding-inline, 16);
+    @include max-width(1366);
+
+    @include res-md {
+      overflow: unset;
+    }
+
+    &--open {
+      position: relative;
+      width: 72vw;
+
+      .buttonDefault {
+        display: none;
+      }
+    }
+
+    .buttonLink {
+      text-wrap-mode: nowrap;
+    }
+
+    .buttonDefault {
+      width: auto;
+
+      &__iconContainer {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(63%) saturate(0%) hue-rotate(257deg) brightness(111%)
+          contrast(100%);
+        transition: 0.3s ease-in-out;
+      }
+
+      &:hover {
+        .buttonDefault__iconContainer {
+          filter: unset;
+        }
+      }
+    }
+  }
+  &__itemsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    @include resize(gap, 8);
+  }
+
+  &__logoContainer {
+    position: relative;
+    opacity: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 8px;
+    aspect-ratio: 136 / 50;
+    transition: opacity 0.25s ease-in-out;
+
+    @include resize(width, 136);
+    @include resize(height, 50);
+
+    &:hover {
+      opacity: 0.7;
+      transition: 0.25s ease-in-out;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-focus;
+      outline-offset: 2px;
+    }
+  }
+
+  &__logo {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__navContainer {
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    @include resize(gap, 16);
+    @include resize(padding, 4, unset);
+
+    &.dropdownContainer {
+      > .headerMain__navContainer--link {
+        flex-shrink: 0;
+        align-items: center;
+        @include resize(gap, 8);
+        @include res-md {
+          align-items: flex-start;
+        }
+        &:after {
+          transition: 0.2s linear;
+          content: "";
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-image: url("/assets/img/icons/chevron-down-black.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          @include resize(width, 19);
+          @include resize(height, 19);
+          @include res-md {
+            min-width: 19px;
+          }
+        }
+      }
+    }
+
+    // ! Classes não utilizadas nesse projeto
+    &.active {
+      > .headerMain__navContainer--link {
+        color: $color-primary-100;
+
+        &:after {
+          transition: 0.2s linear;
+          transform: rotate(180deg);
+        }
+      }
+      .headerMain__navContainer {
+        &--dropdown {
+          max-height: 95vh;
+          transition: 0.25s linear;
+        }
+      }
+    }
+    &--dropdown {
+      position: absolute;
+      background-color: $color-white;
+      @include res-md {
+        position: relative;
+      }
+    }
+    &--content {
+      @include resize(padding, 8, 4);
+      @include res-md {
+        display: flex;
+        flex-direction: column;
+        @include resize(padding-block, 12);
+        @include resize(padding-inline, 12);
+        @include resize(gap, 0, 16);
+      }
+    }
+    &--search {
+      position: relative;
+    }
+    &--menu {
+      display: none;
+      visibility: hidden;
+      @include res-md {
+        display: flex;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__navButtonContainer {
+    position: relative;
+    width: 100%;
+
+    .headerMain__navContainer {
+      &--link {
+        white-space: nowrap;
+        @include res-md {
+          white-space: wrap;
+        }
+        &:hover {
+          color: $color-primary-100;
+        }
+        &--nav {
+          display: flex;
+        }
+      }
+      &--dropdown {
+        white-space: nowrap;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.1s linear;
+      }
+    }
+  }
+
+  &__navContainerLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: $button-border-radius;
+
+    text-wrap-mode: nowrap;
+    font-weight: 600;
+    color: $color-white;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+
+    @include resize(padding-block, 8);
+    @include resize(padding-inline, 16);
+
+    &:focus-visible {
+      outline: 2px solid $color-focus;
+      outline-offset: 2px;
+    }
+
+    &:hover {
+      background-color: $color-secondary-100;
+      color: $color-gray-100;
+    }
+
+    @include res-md {
+      justify-content: space-between;
+      color: $color-gray-100;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-image: url("/icons/arrow-right.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        filter: brightness(0) saturate(100%) invert(4%) sepia(12%) saturate(2030%) hue-rotate(7deg) brightness(96%)
+          contrast(87%);
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    color: $color-gray-100;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+  }
+
+  &__searchContainer {
+    position: relative;
+  }
+
+  &__navContainerMobile {
+    overflow: hidden;
+    position: fixed;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    opacity: 0;
+    top: 0px;
+    right: 0px;
+    width: 0;
+    max-width: 0;
+    height: 100dvh;
+    max-height: 100dvh;
+
+    background-color: $color-secondary-100;
+    background-image: url("/images/header-bg-mobile.svg");
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+
+    transition: 0.3s ease-in-out;
+
+    @include resize(gap, 16);
+    @include resize(padding-top, 100);
+
+    &--active {
+      opacity: 1;
+      width: 100vw;
+      max-width: 80vw;
+      @include resize(padding-inline, 24);
+    }
+
+    .buttonLink {
+      text-wrap-mode: nowrap;
+      justify-content: space-between;
+    }
+
+    // ! Classe não utilizada nesse projeto
+    &--groupMobile {
+      display: none;
+      @include res-md {
+        display: flex;
+        margin-top: auto;
+        border-top: 1px solid $color-gray-400;
+        @include resize(padding-top, 12);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      bottom: 0px;
+      width: 100%;
+      height: 236px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8) 115%);
+    }
+  }
+
+  &__footerContainer {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    @include resize(gap, 12);
+    @include resize(padding-block, 24);
+    @include resize(padding-inline, 16);
+  }
+
+  &__slogan {
+    color: $color-gray-500;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.36px;
+  }
+
+  &__socialContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include resize(gap, 8);
+
+    .buttonLink {
+      padding: 8px;
+      filter: brightness(0) saturate(100%) invert(100%) sepia(63%) saturate(0%) hue-rotate(257deg) brightness(111%)
+        contrast(100%);
+
+      &__icon {
+        object-fit: contain;
+      }
+
+      &:hover {
+        filter: unset;
+      }
+    }
+  }
+
+  &__footerImg {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -180px;
+    padding: 16px;
+    border-radius: 1000px;
+    border: 1px solid $color-primary-200;
+
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 360px;
+    max-width: 360px;
+  }
+
+  &__img {
+    aspect-ratio: 1 / 1;
+    overflow: visible;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    animation: infiniteRotate 30s linear infinite;
+  }
+}

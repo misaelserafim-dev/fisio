@@ -1,0 +1,114 @@
+.searchItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    border-bottom: 1px solid $color-gray-300;
+    background-color: $color-gray-500;
+
+    transition: 270ms ease-in-out;
+
+    @include resize(gap, 8);
+    @include resize(padding-block, 8);
+
+    &__imgContainer {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        @include resize(width, 80);
+        @include resize(height, 80);
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: 270ms ease-in-out;
+    }
+
+    &__contentContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        @include resize(height, 80);
+        @include resize(padding-left, 8);
+        @include resize(padding-right, 16);
+    }
+
+    &__textContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__title {
+        color: $color-gray-100;
+        font-weight: 400;
+        @include resize(font-size, $b3-fs);
+        @include resize(line-height, $b3-lh);
+        @include resize(letter-spacing, $b3-ls);
+        @include lineclamp(2);
+    }
+
+    &__label {
+        color: $color-gray-200;
+        font-weight: 700;
+        @include resize(font-size, $b3-fs);
+        @include resize(line-height, $b3-lh);
+        @include resize(letter-spacing, $b3-ls);
+        @include lineclamp(1);
+    }
+
+    &__iconContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include resize(width, 24);
+        @include resize(height, 24);
+    }
+
+    &__icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: 270ms ease-in-out;
+    }
+
+    &:focus-visible {
+        border-radius: 4px;
+        outline: 2px solid $color-focus;
+        outline-offset: -2px;
+    }
+
+    &:hover {
+        background-color: $color-gray-400;
+
+        .searchItem__img {
+            transform: scale(1.05);
+        }
+
+        .searchItem__icon {
+            animation: floatingArrow 1.5s ease infinite;
+        }
+    }
+}
+
+@keyframes floatingArrow {
+    0% {
+        transform: translatex(0);
+    }
+    50% {
+        transform: translatex(-10px);
+    }
+    100% {
+        transform: translatex(0);
+    }
+}

@@ -1,0 +1,150 @@
+.banner {
+    position: relative;
+    @include resize(border-radius, 24);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background-clip: padding-box;
+
+    .carouselDefault__controls {
+        position: absolute;
+        @include resize(width, 100%);
+        @include resize(bottom, 70, 40);
+    }
+
+    .carouselDefault__dots {
+        justify-content: flex-start;
+        @include resize(padding-left, 65, 35);
+    }
+
+    .carouselDefault__button{
+        border-color: $color-physio-light;
+    }
+
+    .carouselDefault__button--prev {
+        left: initial;
+        @include resize(right, 115);
+    }
+    .carouselDefault__button--next {
+        @include resize(right, 65);
+    }
+
+    &__slide {
+        position: relative;
+        flex: 0 0 100%;
+        @include resize(min-height, 600);
+        @include resize(height, 94dvh, 75dvh);
+        @include resize(max-height, 680, 75dvh);
+        display: flex;
+        align-items: center;
+    }
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     // Usando seu mixin para altura responsiva
+        //     @include resize(height, 200, 100); 
+            
+        //     // Gradiente do transparente para o branco
+        //     background: linear-gradient(
+        //         to bottom,
+        //         rgba(255, 255, 255, 0) 0%,
+        //         rgba(255, 255, 255, 1) 100%
+        //     );
+            
+        //     z-index: 2;
+        //     pointer-events: none;
+        // }
+    }
+
+    &__slide {
+        position: relative;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+
+    &__container {
+        position: relative;
+        z-index: 2;
+        @include container;
+        @include resize(width, 100%);
+        @include resize(padding, 70, 40);
+        @include resize(margin-top, 70, 48);
+        margin-inline: auto;
+    }
+
+    &__carousel {
+        @include resize(width, 100%);
+    }
+
+    &__carousel_container {
+        @include resize(max-width, 720);
+    }
+
+   &__title {
+        @include h1;
+        color: $color-physio-light;
+        font-weight: 200; 
+        text-transform: none;
+        line-height: 1.1;
+        @include resize(margin-bottom, 24, 16);
+
+        strong {
+            display: block;
+            font-weight: 700; 
+            color: #fff;
+            
+            @include resize(letter-spacing, -1.5, -0.5); 
+            
+            background: linear-gradient(120deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            @media (prefers-contrast: more) {
+                -webkit-text-fill-color: initial;
+                background: none;
+            }
+        }
+
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+   &__description {
+        @include description;
+        color: $color-physio-light;
+        opacity: 0.9;
+        font-weight: 300;
+        @include resize(max-width, 580, 100%); 
+        line-height: 1.6;
+        @include resize(margin-bottom, 32, 24);
+        @include res-md {
+            opacity: 1;
+            font-weight: 400;
+        }
+    }
+
+    &__button {
+        margin-top: 24px;
+        display: inline-block;
+        padding: 14px 28px;
+        background: #1e8f7a;
+        color: #fff;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,65 @@
+.buttonHamburguer {
+    z-index: 5;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 100%;
+    @include resize(width, 40);
+    @include resize(height, 40);
+    @include resize(padding, 10);
+
+    &__lineMiddle,
+    &__lineBottom,
+    &__lineTop {
+        position: absolute;
+        background-color: $color-white;
+        @include resize(height, 2);
+        @include resize(border-radius, 20);
+    }
+
+    &__lineTop {
+        width: calc(90% - 12px);
+        transition: 0.35s ease-in-out;
+        @include resize(top, 12);
+
+        &--open {
+            top: 8px;
+            right: 9px;
+            width: 75%;
+            transition: 0.35s ease-in-out;
+            transform: rotate(-45deg);
+            transform-origin: right center;
+        }
+    }
+
+    &__lineMiddle {
+        width: calc(90% - 18px);
+        transition: 0.35s ease-in-out;
+
+        &--open {
+            width: 0;
+            transition: 0.35s ease-in-out;
+        }
+    }
+
+    &__lineBottom {
+        transition: 0.35s ease-in-out;
+        width: calc(90% - 12px);
+        @include resize(bottom, 12);
+
+        &--open {
+            bottom: 8px;
+            right: 9px;
+            width: 75%;
+            transition: 0.35s ease-in-out;
+            transform: rotate(45deg);
+            transform-origin: right center;
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-focus;
+        outline-offset: 2px;
+    }
+}

@@ -1,0 +1,100 @@
+.buttonTranslate {
+    margin-left: auto;
+    &__title {
+        font-family: $font-default;
+        font-weight: 500;
+        color: $color-white;
+        @include resize(font-size, $b2-fs, $b3-fs);
+        @include resize(line-height, $b2-lh, $b3-lh);
+    }
+    &__container {
+        position: relative;
+        display: none;
+        flex-direction: column;
+        .buttonTranslate.active & {
+            display: flex;
+        }
+        .buttonTranslate__content {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            @include resize(padding-inline, 12);
+            @include resize(gap, 8);
+            .buttonTranslate {
+                &__imgContainer {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: auto;
+                    aspect-ratio: 26/20;
+                    @include resize(max-width, 26);
+                }
+                &__imgEmphasis {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            &--flagActive {
+                cursor: pointer;
+                border: 2px solid transparent;
+                &:after {
+                    content: "";
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-image: url("/assets/icons/arrow-down-white.svg");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    transition: 0.25s ease-in-out;
+                    @include resize(width, 19);
+                    @include resize(height, 19);
+                    .buttonTranslate.clicked & {
+                        transition: 0.25s ease-in-out;
+                        transform: rotate(180deg);
+                    }
+                }
+                &:focus-visible {
+                    border-color: $color-focus;
+                }
+            }
+            &--flagOptions {
+                background-color: $color-gray-70;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                top: 145%;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: 0.25s ease-in-out;
+                pointer-events: none;
+                @include resize(gap, 12);
+                @include resize(padding-block, 8);
+                @include resize(border-radius, 4);
+                .buttonTranslate.clicked & {
+                    opacity: 1;
+                    pointer-events: auto;
+                    transition: 0.25s ease-in-out;
+                    @include resize(max-height, 50vh);
+                }
+                .buttonTranslate {
+                    &__btn {
+                        width: 100%;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        border: 2px solid transparent;
+                        @include resize(gap, 8);
+                        &:focus-visible {
+                            border-color: $color-focus;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

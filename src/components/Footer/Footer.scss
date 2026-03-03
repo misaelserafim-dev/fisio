@@ -1,0 +1,206 @@
+.footer {
+  overflow: hidden;
+  position: relative;
+  @include resize(background-image,
+    url('/assets/background-footer.svg'),
+    url('/assets/background-footer-mobile.svg')
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include resize(background-position, 0 -50px, top);
+  @include resize(padding-top, 255, 123);
+  @include resize(margin-top, -260);
+  z-index: 2;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @include resize(padding-inline, 80, 16);
+    @include max-width(1366);
+    margin-inline: auto;
+
+    &::after {
+      content: "";
+      position: absolute;
+      @include resize(display, block, none);
+      @include resize(width, 200);
+      @include resize(height, 199);
+      @include resize(left, 0);
+      @include resize(top, -100);
+      background-image: url('/assets/group-neve.webp');
+      background-size: contain;
+      transition: 0.5s ease-in;
+      transform: translateY(-150px);
+      opacity: 0;
+      z-index: -1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      @include resize(display, block, none);
+      @include resize(width, 180);
+      @include resize(height, 180);
+      @include resize(right, -100);
+      @include resize(bottom, 100);
+      background-image: url('/assets/group-neve-2.webp');
+      background-size: contain;
+      transition: 0.5s ease-in;
+      transform: translateY(-105px);
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+ 
+  &__links {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__link {
+    color: $color-black;
+    font-weight: 700;
+    @include resize(padding-bottom, 10);
+  }
+
+  &__ListCard {
+    @include resize(padding-bottom, 0, 26);
+  }
+  &__ListCard:last-child {
+    @include res-md {
+      @include resize(width, 100%);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__linkIcon {
+    @include resize(width, 24);
+    @include resize(height, 24);
+  }
+
+  &__list_link_sociais {
+    @include resize(width, 32);
+    @include resize(height, 32);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.1s ease-out;
+
+    img {
+      transition: 0.3s;
+    }
+
+    &:hover{
+      background-color: #687a88;
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__copy {
+    color: #0C2A43;
+    width: 100%;
+    @include resize(padding-bottom, 8);
+  }
+
+  &__containerFlex {
+    @include resize(width, 100%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include resize(flex-direction, row, column);
+    @include resize(margin-top, 32, 16);
+    @include resize(margin-bottom, 16, 8);
+    @include resize(padding-top, 32, 16);
+    border-top: 1px solid rgba(12, 42, 67, 0.20);
+
+    h3 {
+      color: #0C2A43;
+      @include resize(font-size, 14);
+      @include resize(line-height, 24);
+      @include resize(margin-bottom, 12);
+      font-weight: 700;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      @include resize(gap, 8);
+
+      a {
+        display: block;
+        width: 100%;
+        @include resize(padding-top, 8);
+        @include resize(padding-bottom, 8);
+        color: #0C2A43;
+        @include resize(font-size, 14);
+        @include resize(line-height, 24);
+        font-weight: 500;
+      }
+    }
+
+    @include res-md{
+      text-align: center;
+    }
+  }
+
+
+  &__copyTitle {
+    p {
+      @include resize(margin-bottom, 16);
+      color: rgba(12, 42, 67, 0.72);
+      font-weight: 400;
+      @include resize(font-size, 10);
+      @include resize(line-height, 16px);
+      letter-spacing: -0.2px;
+    }
+  }
+
+  &__domaContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include resize(gap, 8, 16);
+    @include resize(margin-top, 8);
+    @include resize(padding-top, 8);
+    @include resize(flex-direction,row, column);
+    border-top: 1px solid rgba(12, 42, 67, 0.20);
+  }
+
+  &__doma {
+    color: #0C2A43;
+    @include resize(font-size, 10);
+    @include resize(line-height, 1.6);
+  }
+
+  &__domaIcon {
+    @include resize(width, 51);
+    @include resize(height, 24);
+    aspect-ratio: 17/8;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__list_sociais {
+    @include resize(gap, 8);
+    flex-direction: row !important;
+  }
+
+  &.active {
+    .footer__container::after,.footer__container::before {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

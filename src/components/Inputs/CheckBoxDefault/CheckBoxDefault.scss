@@ -1,0 +1,91 @@
+.checkBoxDefault {
+  position: relative;
+
+  &:has(.checkBoxDefault__element[disabled]) {
+    pointer-events: none;
+
+    .checkBoxDefault {
+      &__element,
+      &__label {
+        border-color: $color-gray-500;
+        color: $color-gray-500;
+      }
+    }
+  }
+
+  &--invalid {
+    .checkBoxDefault__element {
+      border-color: $color-error;
+    }
+
+    .checkBoxDefault__label {
+      color: $color-error;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include resize(gap, 8);
+  }
+
+  &__element {
+    appearance: none;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid $color-gray-300;
+    border-radius: 2px;
+
+    @include resize(width, 18);
+    @include resize(height, 18);
+
+    &:focus,
+    &:hover {
+      border-color: $color-gray-300;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:checked {
+      border-color: $color-gray-300;
+      background-color: $color-gray-300;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        @include resize(width, 24);
+        @include resize(height, 24);
+        background-image: url("/icons/check.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__label {
+    color: $color-black;
+    font-style: normal;
+    font-weight: 400;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+
+    &--invalid {
+      color: $color-error;
+    }
+  }
+
+  &__helpText {
+    color: $color-error;
+    font-style: normal;
+    font-weight: 400;
+    @include resize(font-size, $b3-fs);
+    @include resize(line-height, $b3-lh);
+  }
+}

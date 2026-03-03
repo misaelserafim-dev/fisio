@@ -1,0 +1,28 @@
+.breadCrumb {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  @include resize(gap, 4);
+  @include resize(max-width, 90vw);
+
+  &__link {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    color: $color-black;
+
+    @include resize(font-size, 14);
+    @include resize(max-width, 330);
+
+    @include lineclamp(1);
+
+    &:hover {
+      color: $color-black;
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-black;
+    }
+  }
+}

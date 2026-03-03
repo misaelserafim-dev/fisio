@@ -1,0 +1,142 @@
+.carouselDefault {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  --slide-size: 100%;
+  @include resize(--slide-spacing, 10);
+
+  &__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__container {
+    backface-visibility: hidden;
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+    padding-inline: 1px;
+  }
+
+  &__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+    width: 100%;
+    margin-block: 1px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    position: absolute;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 1000px;
+    border: 1px solid $color-gray-100;
+
+    transition: background-color 0.15s ease-out;
+
+    @include resize(width, 40);
+    @include resize(height, 40);
+    @include res-md {
+      display: none;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: flex;
+      object-fit: contain;
+      background-image: url("/icons/arrow-right.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      @include resize(width, 18);
+      @include resize(height, 18);
+    }
+
+    &:hover {
+      transition: background-color 0.15s ease-in;
+      background-color: $color-physio-primary;
+      border-color: $color-physio-primary;
+      &:before {
+        background-image: url("/icons/arrow-right.svg");
+      }
+    }
+
+    &--prev {
+      transform: rotateY(180deg);
+      @include resize(left, 16);
+    }
+
+    &--next {
+      @include resize(right, 16);
+    }
+  }
+
+  &__button:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    &:before {
+      background-image: url("/icons/arrow-right.svg");
+    }
+  }
+
+  &__button__svg {
+    width: 35%;
+    height: 35%;
+  }
+
+  &__dots {
+    position: absolute;
+    // display: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    bottom: -37px;
+    width: 100%;
+    gap: 24px;
+  }
+
+  &__dot {
+    position: relative;
+    border: 1px solid #fff;
+    background-color: transparent;
+    border-radius: 1000px;
+    @include resize(width, 8);
+    @include resize(height, 8);
+    background-color: rgba(255, 255, 255, 0.534);
+    transition: 0.3s ease-in-out;
+
+    &--selected {
+      background-color: #fff;
+      @include resize(width, 48);
+    }
+  }
+
+  &__dot:after {
+    box-shadow: inset 0 0 0 3px var(--detail-medium-contrast);
+    @include resize(height, 23);
+    @include resize(width, 23);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    content: "";
+  }
+
+  &__dot--selected:after {
+    box-shadow: inset 0 0 0 3px var(--text-body);
+  }
+}

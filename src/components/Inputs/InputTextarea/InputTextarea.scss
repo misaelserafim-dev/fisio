@@ -1,0 +1,90 @@
+.inputTextarea {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  @include resize(gap, 4);
+
+  &:has(.inputTextarea__element[disabled]) {
+    pointer-events: none;
+    .inputTextarea {
+      &__element {
+        color: $color-gray-300;
+        background: $color-gray-400;
+        border: 1px solid $color-gray-300;
+        &::placeholder {
+          color: $color-gray-300;
+        }
+      }
+    }
+  }
+
+  &__label {
+    color: $color-gray-100;
+    font-family: $font-default;
+    font-weight: 700;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+  }
+
+  &__element {
+    resize: none;
+    width: 100%;
+
+    border-radius: $input-border-radius;
+    border: 1px solid $color-gray-300;
+    background: $color-gray-500;
+
+    color: $color-gray-100;
+    font-family: $font-default;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+
+    @include resize(min-height, 170);
+    @include resize(padding-block, $input-padding-block);
+    @include resize(padding-inline, $input-padding-inline);
+
+    &::placeholder {
+      color: $color-gray-200;
+    }
+
+    &:focus-visible {
+      border: 1px solid $color-tertiary-100;
+      outline: 1px solid $color-tertiary-100;
+    }
+
+    &:active {
+      border: 1px solid $color-tertiary-100;
+    }
+  }
+
+  &__helpContainer {
+    display: flex;
+    align-items: center;
+    @include resize(gap, 4);
+  }
+
+  &__helpIcon {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    @include resize(width, 16);
+    @include resize(height, 16);
+  }
+
+  &__helpText {
+    font-weight: 600;
+    font-family: $font-default;
+    color: $color-error;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+  }
+
+  &--invalid {
+    .inputTextarea {
+      &__element {
+        border-color: $color-error;
+      }
+    }
+  }
+}

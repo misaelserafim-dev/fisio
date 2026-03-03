@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "title": "Tratamento para <strong>lesões esportivas</strong>",
+    "description": "Atendimento personalizado e humanizado",
+    "buttonText": "Agendar avaliação",
+    "buttonLink": "#contato",
+    "image": "/images/aaaa.jpg",
+    "overlay": true
+  }
+]

@@ -1,0 +1,45 @@
+.imgDefault {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__skeleton {
+    position: absolute;
+    inset: 0;
+    border-radius: $border-radius;
+    background-color: $color-physio-light;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        $color-physio-light 0%,
+        $color-physio-soft 50%,
+        $color-physio-light 100%
+      );
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.6s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,47 @@
+.newsLetter {
+  position: sticky;
+  @include resize(top, 100);
+  @include resize(width, 429, 100%);
+  background-color: rgba($color-gray-10, 0.3);
+  border: 1px solid $color-gray-10;
+  &__title {
+    font-weight: 600;
+    color: $color-black;
+
+    @include resize(font-size, 20);
+    @include resize(line-height, 28);
+  }
+
+  &__titleContainer {
+    @include resize(margin-bottom, 20);
+  }
+  &__container {
+    @include resize(padding, 24);
+  }
+  &__formContainer {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    @include resize(gap, 20);
+    .btnSubmit {
+      display: block;
+      background-color: $color-primary-100;
+      font-weight: 500;
+      &:hover {
+        background-color: $color-secondary-100;
+      }
+    }
+  }
+  &__resp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include resize(margin-top, 16);
+    .formResponseSuccess {
+      color: $color-primary-100;
+    }
+    .formResponseError {
+      color: $color-error;
+    }
+  }
+}

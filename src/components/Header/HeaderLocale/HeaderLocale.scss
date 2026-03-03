@@ -1,0 +1,155 @@
+.headerLocale {
+    position: relative;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    background-color: $color-gray-70;
+
+    @include resize(padding-block, 10);
+    @include resize(padding-inline, 40, 16);
+    @include resize(justify-content, space-between, flex-end);
+
+    &__title {
+        font-family: $font-default;
+        font-weight: 400;
+        color: $color-gray-40;
+        border: 2px solid transparent;
+
+        @include resize(font-size, $b2-fs, $b3-fs);
+        @include resize(line-height, $b2-lh, $b3-lh);
+
+        &:focus-within {
+            border-color: $color-focus;
+        }
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        &--link {
+            display: flex;
+            align-items: center;
+            @include resize(gap, 13);
+            @include res-md {
+                &:last-child {
+                    display: none;
+                }
+            }
+            .headerLocale {
+                &__title {
+                    display: flex;
+                    align-items: center;
+                    opacity: 0.7;
+                    @include resize(gap, 8);
+                    @include res-md {
+                        display: none;
+                        &:first-child {
+                            display: flex;
+                        }
+                    }
+                }
+                &__imgContainer {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    @include resize(width, 24, 20);
+                }
+                &__imgEmphasis {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+        &--translate {
+            position: relative;
+
+            .headerLocale {
+                &__title {
+                    display: flex;
+                    align-items: center;
+                    color: $color-white;
+                    cursor: pointer;
+                    @include resize(gap, 8);
+                }
+
+                &__imgContainer {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    aspect-ratio: 26/19;
+                    @include resize(min-width, 26);
+                    @include resize(max-width, 26);
+                }
+                &__imgEmphasis {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+                &__nav {
+                    .headerLocale__title {
+                        opacity: 0;
+                        display: flex;
+                        align-items: center;
+                        &.active {
+                            opacity: 1;
+                        }
+                        &::after {
+                            display: flex;
+                            content: "";
+                            transition: 0.2s ease-in-out;
+                            background-image: url("/assets/img/icons/chevron-down-white.svg");
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            @include resize(width, 19, 16);
+                            @include resize(height, 19, 16);
+                        }
+                    }
+                }
+                &__group {
+                    position: absolute;
+                    top: 102%;
+                    display: flex;
+                    background-color: $color-black;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: 0.25s ease-in-out;
+                    @include resize(border-radius, 4);
+                    @include resize(margin-left, -8);
+                    box-sizing: 0 0 8px 0 #000;
+                    min-width: 107%;
+                    &--content {
+                        flex-shrink: 0;
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        @include resize(gap, 12);
+                        @include resize(padding-block, 12);
+                        @include resize(padding-inline, 8);
+                        .headerLocale__title {
+                            width: 100%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            &.active {
+                .headerLocale {
+                    &__group {
+                        transition: 0.2s ease-in-out;
+                        @include resize(max-height, 200);
+                    }
+                    &__title:after {
+                        transition: 0.2s ease-in-out;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

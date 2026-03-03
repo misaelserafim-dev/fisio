@@ -1,0 +1,78 @@
+.searchModal {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background-color: $color-white;
+
+    transition: 0.25s ease-in-out;
+    max-width: 0;
+    max-height: 0;
+
+    @include resize(top, 60);
+    @include resize(right, -16, -60);
+    @include resize(gap, 16);
+    @include resize(padding, 16);
+    @include resize(width, 768, 100vw);
+
+    &--active {
+        opacity: 1;
+        pointer-events: auto;
+        @include resize(max-width, 768, 91vw);
+        @include resize(max-height, 80vh, 70vh);
+    }
+
+    &__itemsContainer {
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        width: 100%;
+
+        .searchItem:last-child {
+            border-bottom: unset;
+        }
+    }
+
+    &__emptyContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__emptyText {
+        color: $color-gray-200;
+        font-weight: 400;
+        @include resize(font-size, $b3-fs);
+        @include resize(line-height, $b3-lh);
+        @include resize(letter-spacing, $b3-ls);
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px; /* Largura do scrollbar */
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none; /* Remove o botão do scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $color-gray-300; /* Cor do thumb */
+        border-radius: 16px; /* Bordas do thumb */
+        border: 2px solid transparent; /* Espaço ao redor do thumb */
+        background-clip: content-box; /* Faz com que o thumb pareça menor */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent; /* Faz o track ser transparente */
+    }
+
+    @-moz-document url-prefix() {
+        * {
+            scrollbar-width: thin; /* Reduce scrollbar width */
+            scrollbar-color: $color-gray-300 transparent; /* Thumb and track color */
+        }
+    }
+}

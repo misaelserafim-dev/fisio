@@ -1,0 +1,166 @@
+.inputSelect {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  @include resize(gap, 4);
+
+  &__label {
+    color: $color-gray-100;
+    font-family: $font-default;
+    font-weight: 700;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+  }
+
+  &__wrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    border-radius: $input-border-radius;
+    border: 1px solid $color-gray-300;
+    background: $color-gray-500;
+
+    @include resize(gap, $input-gap);
+    @include resize(padding-block, $input-padding-block);
+    @include resize(padding-inline, $input-padding-inline);
+
+    &:after {
+      content: "";
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+
+      background: url("/icons/chevron-down.svg") no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      filter: brightness(0) saturate(100%) invert(9%) sepia(24%) saturate(379%) hue-rotate(7deg) brightness(100%)
+        contrast(99%);
+
+      @include resize(width, 24);
+      @include resize(height, 24);
+
+      transition: transform 0.2s ease;
+    }
+
+    &[aria-expanded="true"] {
+      border: 1px solid $color-tertiary-100;
+
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+
+    &[aria-disabled="true"] {
+      pointer-events: none;
+      background: $color-gray-400;
+      border: 1px solid $color-gray-300;
+
+      .inputSelect__option {
+        color: $color-gray-300;
+      }
+
+      &::after {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7409%) hue-rotate(303deg) brightness(91%)
+          contrast(78%);
+      }
+    }
+  }
+
+  &__option {
+    appearance: none;
+    position: relative;
+    width: 100%;
+    color: $color-gray-100;
+    font-family: $font-default;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+
+    &--placeholder {
+      color: $color-gray-200;
+    }
+  }
+
+  &__list {
+    overflow-y: auto;
+    z-index: 5;
+    width: 100%;
+    opacity: 0;
+    max-height: 0;
+
+    background: $color-gray-500;
+    border: 1px solid $color-gray-300;
+    border-radius: $input-border-radius;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    transition:
+      opacity 150ms 50ms ease-in,
+      max-height 150ms ease-in;
+
+    @include resize(gap, $input-gap);
+    @include resize(padding, $input-padding-block);
+
+    &--active {
+      opacity: 1;
+      pointer-events: all;
+      @include resize(max-height, 250);
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+
+    border-radius: $input-border-radius;
+
+    font-weight: 400;
+    color: $color-gray-100;
+    font-family: $font-default;
+    @include resize(font-size, $b1-fs);
+    @include resize(line-height, $b1-lh);
+    @include resize(padding, $input-padding-block);
+
+    &:hover {
+      background: $color-gray-400;
+    }
+
+    &:focus-visible {
+      border-color: $color-tertiary-100;
+    }
+  }
+
+  &__helpContainer {
+    display: flex;
+    align-items: center;
+    @include resize(gap, 4);
+  }
+
+  &__helpIcon {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    @include resize(width, 16);
+    @include resize(height, 16);
+  }
+
+  &__helpText {
+    font-weight: 600;
+    font-family: $font-default;
+    color: $color-error;
+    @include resize(font-size, $b2-fs);
+    @include resize(line-height, $b2-lh);
+  }
+
+  &--invalid {
+    .inputSelect {
+      &__wrapper {
+        border-color: $color-error;
+      }
+    }
+  }
+}

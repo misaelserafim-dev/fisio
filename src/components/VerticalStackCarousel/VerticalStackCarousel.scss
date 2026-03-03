@@ -1,0 +1,28 @@
+#verticalStackCarousel {
+  position: relative !important;
+  @include resize(width, 100%);
+  @include resize(max-width, 984);
+  @include resize(padding-inline, 16);
+  @include resize(margin-top, 36);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-inline: auto;
+}
+ 
+.stack-card {
+  position: sticky;
+  @include resize(top, 120, 60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include res-md {
+    @include resize(min-height, 342);
+  }
+}
+
+.stack-card:nth-child(n+7)
+{
+  transform: translate(0, 12px) !important;
+}

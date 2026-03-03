@@ -1,0 +1,21 @@
+.tagPost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-primary-100;
+  color: $color-white;
+  padding: pCalc(5) pCalc(18);
+  border-radius: pCalc(300);
+  transition: background-color 150ms ease-out;
+  font-weight: 600;
+  @include res-lg {
+    padding: pCalc(10) 15px;
+  }
+  &__tag {
+    @include label;
+  }
+  &:hover {
+    transition: background-color 350ms ease-in;
+    background-color: $color-celtic-blue;
+  }
+}

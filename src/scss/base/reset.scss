@@ -1,0 +1,57 @@
+@use "@/scss/base/typography.scss" as *;
+
+*,
+html,
+body {
+  // -webkit-touch-callout: none; /* iOS Safari */
+  // -webkit-user-select: none; /* Safari */
+  // -khtml-user-select: none; /* Konqueror HTML */
+  // -moz-user-select: none; /* Firefox */
+  // -ms-user-select: none; /* Internet Explorer/Edge */
+  // user-select: none;
+  font-family: $font-default;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  outline: none;
+  box-sizing: border-box;
+  button {
+    background-color: unset;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  a {
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  strong,
+  figure,
+  picture {
+    color: inherit;
+    margin-bottom: unset;
+  }
+  li {
+    list-style: none;
+  }
+}
