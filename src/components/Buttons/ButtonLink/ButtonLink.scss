@@ -1,4 +1,29 @@
 .buttonLink {
+
+     &:focus-visible {
+    outline: 3px solid $color-physio-soft;
+    outline-offset: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Melhorar contraste quando ativo
+  &:active {
+    transform: scale(0.98);
+  }
+
+  // Respeita usuários que desativaram animação
+  @media (prefers-reduced-motion: reduce) {
+    transition: none !important;
+
+    &__secondary,
+    &__video {
+      transition: none !important;
+    }
+  }
+  
     cursor: pointer;
     display: inline-flex;
     align-items: center;

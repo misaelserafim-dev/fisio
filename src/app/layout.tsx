@@ -4,6 +4,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import QueryProvider from "@/provider/QueryProvider/QueryProvider";
 import Footer from "@/components/Footer/Footer";
 import { Poppins } from "next/font/google";
+import Header from "@/components/Header/Header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default async function RootLayout({
     <html lang="pt-BR" className={poppins.variable}>
       <body>
         <QueryProvider>
+          <Header />
           {children}
         </QueryProvider>
         {/* <GoogleTagManager gtmId={gtmId} />
