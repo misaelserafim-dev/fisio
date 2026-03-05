@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Ortopedica e Traumato",
+    "description": "Recuperacao funcional para dores e lesoes em coluna, ombro, joelho e demais articulacoes."
+  },
+  {
+    "id": 2,
+    "title": "RPG e Postural",
+    "description": "Avaliacao global e correcao postural para reduzir compensacoes e melhorar mobilidade no dia a dia."
+  },
+  {
+    "id": 3,
+    "title": "Neurofuncional",
+    "description": "Plano terapeutico individual para reabilitacao neurologica com foco em autonomia e qualidade de vida."
+  },
+  {
+    "id": 4,
+    "title": "Esportiva",
+    "description": "Prevencao e tratamento de lesoes esportivas com retorno seguro ao treino e a competicao."
+  },
+  {
+    "id": 5,
+    "title": "Pelvica",
+    "description": "Atendimento especializado para disfuncoes do assoalho pelvico em diferentes fases da vida."
+  },
+  {
+    "id": 6,
+    "title": "Respiratoria",
+    "description": "Tecnicas de reabilitacao pulmonar para ganho de capacidade funcional e controle dos sintomas."
+  }
+]

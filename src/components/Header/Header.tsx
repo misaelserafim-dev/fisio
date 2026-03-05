@@ -26,7 +26,7 @@ const Header: FC = () => {
       const elRect = el.getBoundingClientRect();
 
       indicator.style.width = `${elRect.width}px`;
-      indicator.style.transform = `translate(${elRect.left - navRect.left}px, -50%)`;
+      indicator.style.transform = `translate(${elRect.left - navRect.left}px, 0)`;
     };
 
     const handleMouseLeave = () => {
@@ -123,15 +123,16 @@ const Header: FC = () => {
                 <a href="#contact">Contato</a>
               </li>
             </ul>
+            
+            <a
+              href="tel:+5541999999999"
+              className="header__phone"
+              aria-label="Ligar para clínica Fisio"
+            >
+              (41) 99999-9999
+            </a>
           </nav>
 
-          <a
-            href="tel:+5541999999999"
-            className="header__phone"
-            aria-label="Ligar para clínica Fisio"
-          >
-            (41) 99999-9999
-          </a>
 
           <button
             className={`header__menu_button ${

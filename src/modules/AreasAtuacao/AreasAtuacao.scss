@@ -1,0 +1,156 @@
+.areasAtuacao {
+  @include resize(margin-top, 72, 48);
+
+  &__header {
+    @include resize(margin-bottom, 28, 20);
+    @include resize(width, 100%);
+    display: flex;
+    @include resize(gap, 150, 20);
+    justify-content: space-between;
+    @include res-md {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__eyebrow {
+    @include button-text(600);
+    color: $color-physio-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    @include resize(margin-bottom, 10, 8);
+  }
+
+  &__title {
+    @include h2;
+    color: $color-gray-100;
+    @include resize(margin-bottom, 12, 10);
+  }
+
+  &__description {
+    @include resize(font-size, 15, 13);
+    @include resize(line-height, 22, 19);
+    color: $color-gray-200;
+  }
+
+  &__carouselWrap {
+    @include resize(padding-bottom, 52, 42);
+
+    .carouselDefault {
+      --slide-spacing: calc(.625rem + (13.3333 - 10) * (100vw - 85.375rem) / 1194);
+      --slide-size: calc((100% - (var(--slide-spacing) * 2.7)) / 3.18);
+
+      @include res-md {
+        --slide-size: calc((100% - var(--slide-spacing)) / 1.9);
+      }
+    }
+
+    .carouselDefault__viewport {
+      @include resize(padding-top, 12, 10);
+      @include resize(padding-bottom, 20, 14);
+    }
+  }
+
+  .carouselDefault__controls {
+    @include resize(bottom, 0);
+  }
+
+  .carouselDefault__dots {
+    gap: 12px;
+    bottom: 4px;
+
+    .carouselDefault__dot {
+      border-color: rgba(30, 143, 122, 0.35);
+      background: rgba(30, 143, 122, 0.25);
+    }
+
+    .carouselDefault__dot--selected {
+      background: $color-physio-primary;
+    }
+  }
+
+  .carouselDefault__button {
+    border-color: rgba(30, 143, 122, 0.35);
+
+    &:before {
+      filter: saturate(0.6);
+    }
+  }
+
+  &__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+    @include resize(padding-bottom, 8, 6);
+  }
+
+  &__card {
+    position: relative;
+    background: #fff;
+    border: none;
+    @include resize(border-radius, 24, 16);
+    @include resize(padding, 14, 12);
+    transition: transform 0.25s ease;
+
+    &:hover {transform: translateY(-4px); }
+  }
+
+  &__headerRight {
+    @include resize(max-width, 600, 100%);
+    @include resize(margin-right, auto, 0);
+  }
+
+  &__media {
+    position: relative;
+    @include resize(height, 320, 260);
+    border-radius: inherit;
+    overflow: hidden;
+    @include resize(margin-bottom, 20, 14);
+  }
+
+  &__mediaOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 23, 20, 0.04) 25%, rgba(12, 23, 20, 0.72) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &__cardTitle {
+    position: absolute;
+    z-index: 2;
+    @include resize(left, 14, 12);
+    @include resize(right, 14, 12);
+    @include resize(bottom, 12, 10);
+    color: #fff;
+    font-weight: 600;
+    @include resize(font-size, 20, 16);
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  &__cardDescription {
+    @include resize(font-size, 15, 13);
+    @include resize(line-height, 22, 19);
+    color: #000;
+    @include resize(padding, 4, 2);
+    @include resize(min-height, 88, auto);
+  }
+
+  &__cta {
+    @include resize(margin-top, 24, 18);
+    display: flex;
+    justify-content: center;
+  }
+
+  &--compact {
+    @include resize(margin-top, 32, 24);
+
+    .areasAtuacao__description {
+      @include resize(max-width, 860, 100%);
+    }
+  }
+}
+
+
