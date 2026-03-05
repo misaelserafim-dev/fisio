@@ -39,7 +39,6 @@ const AreasAtuacao: FC<AreasAtuacaoProps> = ({ compact = false }) => {
                     src={coverImage}
                     alt={area.title}
                     fill
-                    priority={index === 0}
                     sizes="(max-width: 768px) 100vw, 33vw"
                     style={{ objectFit: "cover" }}
                   />
@@ -57,11 +56,11 @@ const AreasAtuacao: FC<AreasAtuacaoProps> = ({ compact = false }) => {
       {!compact && (
         <div className="areasAtuacao__cta">
           <ButtonLink
-            variant="secondary"
+            variant="inverse"
             linkProps={{
               url: "#contact",
-              name: "Agendar avaliacao",
-              title: "Agendar avaliacao",
+              name: "Agendar consulta",
+              title: "Agendar consulta",
             }}
             iconRight="chevron-right"
           />

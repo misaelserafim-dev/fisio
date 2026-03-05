@@ -25,13 +25,15 @@
 
   &__title {
     @include h2;
+    @include resize(font-size, 46, 32);
+    @include resize(line-height, 52, 38);
     color: $color-gray-100;
     @include resize(margin-bottom, 12, 10);
   }
 
   &__description {
-    @include resize(font-size, 15, 13);
-    @include resize(line-height, 22, 19);
+    @include resize(font-size, 14, 12);
+    @include resize(line-height, 21, 18);
     color: $color-gray-200;
   }
 
@@ -120,19 +122,19 @@
   &__cardTitle {
     position: absolute;
     z-index: 2;
-    @include resize(left, 14, 12);
-    @include resize(right, 14, 12);
-    @include resize(bottom, 12, 10);
+    @include resize(left, 20, 12);
+    @include resize(right, 20, 12);
+    @include resize(bottom, 20, 10);
     color: #fff;
     font-weight: 600;
-    @include resize(font-size, 20, 16);
+    @include resize(font-size, 18, 15);
     line-height: 1.2;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   }
 
   &__cardDescription {
-    @include resize(font-size, 15, 13);
-    @include resize(line-height, 22, 19);
+    @include resize(font-size, 14, 12);
+    @include resize(line-height, 21, 18);
     color: #000;
     @include resize(padding, 4, 2);
     @include resize(min-height, 88, auto);
@@ -152,5 +154,7 @@
     }
   }
 }
+
+
 
 

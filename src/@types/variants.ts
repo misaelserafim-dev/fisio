@@ -1,1 +1,1 @@
-export type ButtonVariants = "primary" | "secondary" | "tertiary" | "quaternary" | "video" | "outline" | "ghost";
+export type ButtonVariants = "primary" | "secondary" | "tertiary" | "inverse" | "quaternary" | "video" | "outline" | "ghost";

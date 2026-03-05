@@ -19,7 +19,9 @@
     transition: none !important;
 
     &__secondary,
-    &__video {
+    &__video,
+    &__tertiary,
+    &__inverse {
       transition: none !important;
     }
   }
@@ -45,12 +47,15 @@
         transition: inherit;
         position: relative;
         z-index: 5; 
-        @include button-font(400); 
+        @include button-font(400);
+        @include resize(font-size, 14, 13);
+        @include resize(line-height, 20, 18); 
         color: $color-white;
     }
 
     // --- ESTRUTURA PILL COMPARTILHADA ---
-    &__secondary, &__video {
+    &__secondary, &__video, &__tertiary,
+    &__inverse {
         border-radius: 1000px; 
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -89,7 +94,7 @@
         }
 
         .buttonLink__iconContainer {
-            background-color: rgba($color-physio-primary, 0.4); // Tom esverdeado inicial
+            background-color: #157b73;
         }
 
         .buttonLink__icon { 
@@ -106,7 +111,7 @@
 
             .buttonLink__iconContainer {
                 // Mantém ou escurece levemente o verde no hover, em vez de ficar branco
-                background-color: rgba($color-physio-primary, 0.6); 
+                background-color: #157b73;
             }
         }
     }
@@ -141,7 +146,42 @@
             }
         }
     }
+    // --- TERTIARY (Contraste alto para fundo branco) ---
+    &__tertiary,
+    &__inverse {
+        background-color: rgba($color-white, 0.96);
+        border: 1px solid rgba($color-physio-primary, 0.28);
+        box-shadow: 0 10px 24px rgba($color-physio-primary, 0.08);
 
+        .buttonLink__text {
+            color: darken($color-physio-primary, 18%);
+        }
+
+        &::before {
+            background: radial-gradient(220px circle at var(--mouse-x) var(--mouse-y), rgba($color-physio-primary, 0.12), transparent 60%);
+        }
+
+        .buttonLink__iconContainer {
+            background-color: $color-physio-primary;
+        }
+
+        .buttonLink__icon {
+            filter: brightness(0) unquote("invert(100%)");
+        }
+
+        &:hover {
+            border-color: rgba($color-physio-primary, 0.5);
+            box-shadow: 0 12px 28px rgba($color-physio-primary, 0.16);
+
+            &::after {
+                background: radial-gradient(120px circle at var(--mouse-x) var(--mouse-y), rgba($color-physio-primary, 0.45), transparent 80%);
+            }
+
+            .buttonLink__iconContainer {
+                background-color: darken($color-physio-primary, 10%);
+            }
+        }
+    }
     &__icon { 
         display: block;
         object-fit: contain; 
@@ -150,3 +190,4 @@
         @include resize(height, 16, 14);
     }
 }
+

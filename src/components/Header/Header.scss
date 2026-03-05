@@ -37,10 +37,10 @@
   &__container {
     display: flex;
     align-items: center;
-    @include resize(padding-left, 12, 20);
-    @include resize(padding-right, 12, 20);
-    @include resize(padding-top, 12, 10);
-    @include resize(padding-bottom, 12, 10);
+    @include resize(padding-left, 5, 20);
+    @include resize(padding-right, 5, 20);
+    @include resize(padding-top, 5, 10);
+    @include resize(padding-bottom, 5, 10);
   }
 
   // ================= LOGO =================
@@ -65,7 +65,7 @@
   align-items: center;
   justify-content: center;
 
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
   color: #fff;
 
@@ -75,26 +75,18 @@
   @include resize(margin-left, 22, 18);
   @include resize(padding-right, 22, 18);
   @include resize(border-radius, 1000);
+  border: 1px solid transparent;
 
-  background: linear-gradient(
-    135deg,
-    #176151,
-    #1f7a65
-  );
-
-  box-shadow:
-    0 8px 25px rgba($color-physio-primary, 0.35),
-    inset 0 1px 4px rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #157b73, #19584a);
 
   transition: all 0.3s ease;
 
-  @include resize(font-size, 14, 13);
+  @include resize(font-size, 14, 12);
+  letter-spacing: 1px;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 12px 30px rgba($color-physio-primary, 0.45),
-      inset 0 1px 4px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #19584a, #157b73);
+    border-color: white;;
   }
 
   &:focus-visible {
@@ -108,7 +100,6 @@
     position: relative;
     display: flex;
     align-items: stretch;
-    overflow: hidden;
     @include resize(border-radius, 20);
   }
 
@@ -144,7 +135,7 @@
 
     color: rgba(255, 255, 255, 0.85);
 
-    @include resize(font-size, 15, 14);
+    @include resize(font-size, 13, 12);
 
     transition:
       color 0.3s ease,
@@ -172,16 +163,9 @@
     position: absolute;
     top: 0;
     left: 0;
-
     height: 100%;
     border-radius: 999px;
-
-    background: linear-gradient(
-      135deg,
-      #176151,
-      #1f7a65
-    );
-
+    background: linear-gradient(135deg, #157b73, #19584a);
     box-shadow:
       0 8px 25px rgba($color-physio-primary, 0.35),
       inset 0 1px 4px rgba(255, 255, 255, 0.15);
@@ -194,9 +178,7 @@
       width 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 
     z-index: 1;
-  }
-
-  // ================= SCROLL STATES =================
+  }  // ================= SCROLL STATES =================
 
   &--down {
     transform: translate(-50%, -200%);
@@ -208,12 +190,22 @@
     .header__nav_item a {
       color: rgba(0, 0, 0, 0.85);
     }
-    // current page a is white
-    .header__nav_item a.active {
-      color: #fff;
+
+    .header__nav_item a:hover,
+    .header__nav_item a:focus-visible,
+    .header__nav_item a[aria-current="page"] {
+      color: #111;
+    }
+
+    .header__nav_indicator {
+      background: #fff;
+      box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
   }
-
   // ================= MOBILE =================
 
   @include res-md {
@@ -227,3 +219,6 @@
     }
   }
 }
+
+
+
