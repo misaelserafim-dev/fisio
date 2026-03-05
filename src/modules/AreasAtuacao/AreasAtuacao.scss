@@ -1,5 +1,6 @@
 .areasAtuacao {
   @include resize(margin-top, 72, 48);
+  @include resize(padding-inline, 48, 0);
 
   &__header {
     @include resize(margin-bottom, 28, 20);
@@ -90,7 +91,6 @@
     background: #fff;
     border: none;
     @include resize(border-radius, 24, 16);
-    @include resize(padding, 14, 12);
     transition: transform 0.25s ease;
 
     &:hover {transform: translateY(-4px); }
