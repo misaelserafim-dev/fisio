@@ -199,11 +199,19 @@
   // ================= SCROLL STATES =================
 
   &--down {
-    transform: translate(-50%, -150%);
+    transform: translate(-50%, -200%);
   }
 
   &--up {
-    background: rgba(255, 255, 255, 0.12);
+    background: #fff;
+
+    .header__nav_item a {
+      color: rgba(0, 0, 0, 0.85);
+    }
+    // current page a is white
+    .header__nav_item a.active {
+      color: #fff;
+    }
   }
 
   // ================= MOBILE =================

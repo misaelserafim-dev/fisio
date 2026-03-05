@@ -1,5 +1,5 @@
 #home {
-   @include resize(padding, 24, 16);
+   @include resize(padding, 20, 16);
     @include resize(max-width, 1680);
     margin-inline: auto;
 }
