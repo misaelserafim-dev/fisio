@@ -74,35 +74,25 @@
     }
 
     &__title {
-        @include h2;
-        @include resize(font-size, 32, 24);
-        @include resize(line-height, 38, 30);
-        color: #11ffcc;
-        font-weight: 200;
-        text-transform: uppercase;
-        line-height: 1.1;
-        @include resize(margin-bottom, 24, 16);
+        @include h1;
+        @include resize(font-size, 56, 34);
+        @include resize(line-height, 62, 40);
+        color: #f8f6ef;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        @include resize(margin-bottom, 38, 24);
+        text-wrap: balance;
 
-        strong {
-            display: block;
-            color: #fff;
-            text-transform: none;
-            @include h1;
-            @include resize(font-size, 44, 30);
-            @include resize(line-height, 50, 36);
-            font-weight: 600;
-            @include resize(letter-spacing, -1.5, -0.5);
-            background: linear-gradient(120deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            @media (prefers-contrast: more) {
-                -webkit-text-fill-color: initial;
-                background: none;
-            }
+        & strong {
+            display: inline-block;
+            font-family: "Poppins", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #ffffff;
         }
-
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     &__description {
@@ -110,6 +100,7 @@
         @include resize(font-size, 15, 13);
         @include resize(line-height, 23, 20);
         color: $color-physio-light;
+        font-family: "Poppins", sans-serif;
         opacity: 0.9;
         font-weight: 300;
         @include resize(max-width, 580, 100%);
@@ -182,5 +173,3 @@
         background: transparent;
     }
 }
-
-

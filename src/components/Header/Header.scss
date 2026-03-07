@@ -77,7 +77,7 @@
   @include resize(border-radius, 1000);
   border: 1px solid transparent;
 
-  background: linear-gradient(135deg, #157b73, #19584a);
+  background: linear-gradient(135deg, #309093, #23777a);
 
   transition: all 0.3s ease;
 
@@ -85,7 +85,7 @@
   letter-spacing: 1px;
 
   &:hover {
-    background: linear-gradient(135deg, #19584a, #157b73);
+    background: linear-gradient(135deg, #23777a, #309093);
     border-color: white;;
   }
 
@@ -165,10 +165,7 @@
     left: 0;
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(135deg, #157b73, #19584a);
-    box-shadow:
-      0 8px 25px rgba($color-physio-primary, 0.35),
-      inset 0 1px 4px rgba(255, 255, 255, 0.15);
+    background: #309093;
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);

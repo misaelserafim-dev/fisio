@@ -29,11 +29,11 @@ const Banner: FC = () => {
                 <div className="banner__carousel">
                   <div className="banner__carousel_container">
                     <h1 className="banner__title" dangerouslySetInnerHTML={{ __html: item.title }} />
-                    <p className="banner__description" dangerouslySetInnerHTML={{ __html: item.description }} />
+                    {/* <p className="banner__description" dangerouslySetInnerHTML={{ __html: item.description }} /> */}
 
                     {item.buttonText && (
                       <ButtonLink
-                        variant="secondary"
+                        variant="inverse"
                         linkProps={{
                           url: item.buttonLink,
                           name: item.buttonText,

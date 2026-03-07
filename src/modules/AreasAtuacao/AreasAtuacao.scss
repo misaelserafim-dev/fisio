@@ -8,6 +8,7 @@
     display: flex;
     @include resize(gap, 150, 20);
     justify-content: space-between;
+
     @include res-md {
       flex-direction: column;
       align-items: center;
@@ -41,8 +42,8 @@
     @include resize(padding-bottom, 52, 42);
 
     .carouselDefault {
-      --slide-spacing: calc(.625rem + (13.3333 - 10) * (100vw - 85.375rem) / 1194);
-      --slide-size: calc((100% - (var(--slide-spacing) * 2.7)) / 3.18);
+      --slide-spacing: clamp(1.25rem, 2vw, 2rem);
+      --slide-size: calc((100% - (var(--slide-spacing) * 3)) / 4);
 
       @include res-md {
         --slide-size: calc((100% - var(--slide-spacing)) / 1.9);
@@ -59,6 +60,33 @@
     @include resize(bottom, 0);
   }
 
+  .carouselDefault__buttons {
+    position: absolute;
+    left: 0;
+    @include resize(bottom, -34, -24);
+    display: flex;
+    @include resize(gap, 16, 12);
+    z-index: 6;
+  }
+
+  .carouselDefault__button {
+    position: static;
+    border-color: $color-physio-primary;
+    background-color: $color-physio-primary;
+
+    &:before {
+      filter: none;
+    }
+  }
+
+  .carouselDefault__button--next {
+    right: auto;
+  }
+
+  .carouselDefault__button--prev {
+    left: auto;
+  }
+
   .carouselDefault__dots {
     gap: 12px;
     bottom: 4px;
@@ -73,14 +101,6 @@
     }
   }
 
-  .carouselDefault__button {
-    border-color: rgba(30, 143, 122, 0.35);
-
-    &:before {
-      filter: saturate(0.6);
-    }
-  }
-
   &__slide {
     flex: 0 0 var(--slide-size);
     min-width: 0;
@@ -90,12 +110,24 @@
 
   &__card {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: #fff;
     border: none;
     @include resize(border-radius, 24, 16);
     transition: transform 0.25s ease;
 
-    &:hover {transform: translateY(-4px); }
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    &:focus-visible {
+      outline: none;
+      transform: translateY(-4px);
+      border: 2px solid rgba(30, 143, 122, 0.82);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92), 0 10px 24px rgba(8, 16, 14, 0.2);
+    }
   }
 
   &__headerRight {
@@ -105,39 +137,47 @@
 
   &__media {
     position: relative;
-    @include resize(height, 320, 260);
+    width: 100%;
+    aspect-ratio: 4 / 5;
     border-radius: inherit;
     overflow: hidden;
-    @include resize(margin-bottom, 20, 14);
   }
 
   &__mediaOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(12, 23, 20, 0.04) 25%, rgba(12, 23, 20, 0.72) 100%);
+    background: linear-gradient(180deg, rgba(10, 22, 19, 0.02) 34%, rgba(10, 22, 19, 0.9) 100%);
     z-index: 1;
     pointer-events: none;
   }
 
-  &__cardTitle {
+  &__cardContent {
     position: absolute;
     z-index: 2;
     @include resize(left, 20, 12);
     @include resize(right, 20, 12);
-    @include resize(bottom, 20, 10);
+    @include resize(bottom, 18, 12);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include resize(gap, 10, 7);
+  }
+
+  &__cardTitle {
+    margin: 0;
     color: #fff;
-    font-weight: 600;
-    @include resize(font-size, 18, 15);
+    font-weight: 700;
+    @include resize(font-size, 17, 14);
     line-height: 1.2;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    max-width: 100%;
   }
 
   &__cardDescription {
-    @include resize(font-size, 14, 12);
-    @include resize(line-height, 21, 18);
-    color: #000;
-    @include resize(padding, 4, 2);
-    @include resize(min-height, 88, auto);
+    margin: 0;
+    @include resize(font-size, 13, 11);
+    @include resize(line-height, 20, 17);
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 100%;
   }
 
   &__cta {
@@ -155,6 +195,11 @@
   }
 }
 
-
-
+@media (prefers-reduced-motion: reduce) {
+  .areasAtuacao {
+    &__card {
+      transition: none;
+    }
+  }
+}
 

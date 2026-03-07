@@ -1,0 +1,129 @@
+.processoCuidado {
+  @include resize(margin-top, 96, 58);
+  @include resize(margin-bottom, 88, 56);
+  &__intro {
+    @include resize(max-width, 900, 100%);
+    @include resize(margin-bottom, 34, 24);
+  }
+
+  &__eyebrow {
+    margin: 0;
+    @include resize(margin-bottom, 10, 8);
+    @include resize(font-size, 11, 10);
+    @include resize(line-height, 16, 14);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(16, 57, 65, 0.62);
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+  }
+
+  &__title {
+    margin: 0;
+    @include resize(max-width, 820, 100%);
+    @include resize(font-size, 44, 30);
+    @include resize(line-height, 52, 36);
+    color: #103941;
+    @include resize(margin-bottom, 10, 8);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+  }
+
+  &__description {
+    margin: 0;
+    @include resize(max-width, 760, 100%);
+    @include resize(font-size, 16, 13);
+    @include resize(line-height, 26, 21);
+    color: rgba(16, 57, 65, 0.74);
+    font-family: "Poppins", sans-serif;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    @include resize(gap, 14, 10);
+
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include res-md {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(150px, 13vw, 196px);
+    @include resize(padding, 22, 16);
+    @include resize(padding-bottom, 30, 22);
+    @include resize(border-radius, 18, 14);
+    border: 1px solid rgba(17, 43, 48, 0.12);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 100%);
+    backdrop-filter: blur(2px);
+    transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+
+    @include res-md {
+      aspect-ratio: auto;
+      min-height: auto;
+    }
+
+    &:hover {
+      border-color: rgba(17, 43, 48, 0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(15, 47, 53, 0.08);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      width: 36%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(17, 43, 48, 0.08), rgba(17, 43, 48, 0.35), rgba(17, 43, 48, 0.08));
+    }
+  }
+
+  &__index {
+    display: block;
+    @include resize(font-size, 13, 11);
+    @include resize(line-height, 18, 16);
+    letter-spacing: 0.08em;
+    color: rgba(17, 43, 48, 0.5);
+    @include resize(margin-bottom, 12, 8);
+    font-family: "Poppins", sans-serif;
+  }
+
+  &__cardTitle {
+    margin: 0;
+    @include resize(font-size, 23, 18);
+    @include resize(line-height, 30, 24);
+    color: #103941;
+    @include resize(margin-bottom, 8, 6);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+
+  &__cardDescription {
+    margin: 0;
+    @include resize(font-size, 14, 12);
+    @include resize(line-height, 23, 19);
+    color: rgba(16, 57, 65, 0.74);
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .processoCuidado__item {
+    transition: none;
+  }
+}
+
+

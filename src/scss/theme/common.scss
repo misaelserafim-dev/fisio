@@ -4,19 +4,27 @@
   overflow: hidden;
 }
 
+.sectionInline {
+  padding-inline: clamp(2rem, 6vw, 6rem);
+}
+
+.sectionInline--compact {
+  padding-inline: clamp(1rem, 3vw, 2.75rem);
+}
+
 ::-webkit-scrollbar {
   width: 10px; /* Largura do scrollbar */
 }
 
 ::-webkit-scrollbar-button {
-  display: none; /* Remove o botão do scrollbar */
+  display: none; /* Remove o botao do scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: $color-physio-primary; /* Cor do thumb */
   border-radius: 10px; /* Bordas do thumb */
-  border: 3px solid transparent; /* Espaço ao redor do thumb */
-  background-clip: content-box; /* Faz com que o thumb pareça menor */
+  border: 3px solid transparent; /* Espaco ao redor do thumb */
+  background-clip: content-box; /* Faz com que o thumb pareca menor */
 }
 
 ::-webkit-scrollbar-track {

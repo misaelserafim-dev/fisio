@@ -5,12 +5,18 @@ import bannerMock from "@/mocks/bannerMock.json";
 import ButtonLink from "@/components/Buttons/ButtonLink/ButtonLink";
 import CarouselDefault from "@/components/Carousel/CarouselDefault/CarouselDefault";
 import ImgDefault from "@/components/ImgDefault/ImgDefault";
+import AreasAtuacaoV2 from "./AreasAtuacaoV2";
 
 type AreasAtuacaoProps = {
   compact?: boolean;
+  variant?: "v1" | "v2";
 };
 
-const AreasAtuacao: FC<AreasAtuacaoProps> = ({ compact = false }) => {
+const AreasAtuacao: FC<AreasAtuacaoProps> = ({ compact = false, variant = "v1" }) => {
+  if (variant === "v2") {
+    return <AreasAtuacaoV2 compact={compact} />;
+  }
+
   const areas = areasAtuacaoMock;
   const coverImage = bannerMock?.[0]?.image || "/images/aaaa.jpg";
 
@@ -31,9 +37,9 @@ const AreasAtuacao: FC<AreasAtuacaoProps> = ({ compact = false }) => {
 
       <div className="areasAtuacao__carouselWrap">
         <CarouselDefault options={{ loop: true, align: "start" }} activeSlide>
-          {areas.map((area, index) => (
+          {areas.map((area) => (
             <article className="areasAtuacao__slide" key={area.id}>
-              <div className="areasAtuacao__card">
+              <div className="areasAtuacao__card" tabIndex={0} aria-label={`${area.title}. ${area.description}`}>
                 <div className="areasAtuacao__media">
                   <ImgDefault
                     src={coverImage}
@@ -43,10 +49,12 @@ const AreasAtuacao: FC<AreasAtuacaoProps> = ({ compact = false }) => {
                     style={{ objectFit: "cover" }}
                   />
                   <div className="areasAtuacao__mediaOverlay" />
-                  <h3 className="areasAtuacao__cardTitle">{area.title}</h3>
-                </div>
 
-                <p className="areasAtuacao__cardDescription">{area.description}</p>
+                  <div className="areasAtuacao__cardContent">
+                    <h3 className="areasAtuacao__cardTitle">{area.title}</h3>
+                    <p className="areasAtuacao__cardDescription">{area.description}</p>
+                  </div>
+                </div>
               </div>
             </article>
           ))}
