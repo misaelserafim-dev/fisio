@@ -219,6 +219,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   font-family: var(--serif); font-size: 24px; text-decoration: none;
 }
 .sheet__link span { color: var(--rose-icon); font-size: 18px; }
+.sheet__link:last-child { border-bottom: 0; }
 
 /* Abertura */
 .hero { position: relative; background: var(--cream); padding-bottom: clamp(140px, 15vw, 220px); }
@@ -576,7 +577,10 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 
 /* ---------- 7. Celular ---------- */
 @media (max-width: 760px) {
-  .header { top: 20px; }
+  /* Raios concêntricos: menu (pílula de 58px → raio 29) a 12px da borda do cartão → cartão com raio 29 + 12 = 41 */
+  .header { top: 20px; padding: 0 20px; }
+  .header.is-scrolled { padding: 0 12px; }
+  .sheet { left: 20px; right: 20px; top: 88px; border-radius: 29px; }
   .header.is-scrolled { top: 10px; }
   :root { --gutter: 20px; }
   .nav-links, .only-desktop { display: none !important; }
@@ -590,7 +594,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   .hero__curves { display: none; } /* no celular o texto ocupa a tela toda */
   .mbar a { font-size: 15px; }
   .hero__grid { padding-top: 108px; gap: 44px; }
-  .hero--card { margin: 8px; border-radius: 26px; min-height: 0; }
+  .hero--card { margin: 8px; border-radius: 41px; min-height: 0; }
   .hero--card .hero__grid { padding-top: 104px; gap: 36px; }
   .hero--card .hero__text { padding-bottom: 0; }
   .hero__badge { bottom: 16px; padding: 8px 14px; font-size: 12px; }
