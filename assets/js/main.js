@@ -131,7 +131,7 @@
     var mobile = window.innerWidth <= 760;
     // O texto desce mais devagar e some; a foto desce menos — dá a sensação de profundidade
     var textSpeed = mobile ? 0.12 : 0.32;
-    var figSpeed = mobile ? 0.05 : 0.14;
+    var figSpeed = mobile ? 0 : 0.14; // no celular a foto fica fixa na base do cartão
     if (heroText) {
       heroText.style.transform = 'translate3d(0,' + (y * textSpeed).toFixed(1) + 'px,0)';
       heroText.style.opacity = Math.max(0, 1 - y / (vh * 0.85)).toFixed(3);
