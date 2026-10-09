@@ -1,0 +1,10 @@
+Coloque as fotos nesta pasta com estes nomes (o site já aponta para eles).
+Enquanto uma foto não existir, aparece o espaço reservado com a legenda.
+
+hero.jpg       Foto principal da Noemi (vertical, 4:5 — ex.: 960 x 1200 px)
+noemi.jpg      Foto da Noemi para a seção Equipe (vertical, 4:5 — ex.: 800 x 1000 px)
+misael.jpg     Foto do Misael para a seção Equipe (vertical, 4:5 — ex.: 800 x 1000 px)
+og-image.jpg   Imagem que aparece ao compartilhar o link no WhatsApp/redes (1200 x 630 px)
+favicon.svg    Ícone da aba do navegador (já incluso)
+
+Dica: exporte em JPG ou WebP com qualidade ~80% para o site abrir rápido no celular.

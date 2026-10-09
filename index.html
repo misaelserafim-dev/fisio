@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>[Nome] Fisioterapia — Atendimento domiciliar em Curitiba e São José dos Pinhais</title>
+  <meta name="description" content="Fisioterapia domiciliar, fisioterapia respiratória e terapia manual em Curitiba e São José dos Pinhais. Atendimento individual, no conforto da sua casa.">
+  <meta name="theme-color" content="#f9f6eb">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[Nome] Fisioterapia">
+  <meta property="og:description" content="Fisioterapia domiciliar, respiratória e terapia manual em Curitiba e São José dos Pinhais.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fontes locais pré-carregadas: chegam junto com a página e não "piscam" ao recarregar -->
+  <link rel="preload" href="assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces-var-italic.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Aplica preferências salvas antes de desenhar a página (evita salto) -->
+  <script>
+    try {
+      var c = document.documentElement;
+      if (localStorage.getItem('fisio-calm') === '1') c.classList.add('calm');
+      var z = localStorage.getItem('fisio-zoom');
+      if (z) c.style.setProperty('--zoom', z);
+    } catch (e) {}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physiotherapy",
+    "name": "[Nome] Fisioterapia",
+    "description": "Fisioterapia domiciliar, fisioterapia respiratória e terapia manual.",
+    "telephone": "+55-41-[NUMERO]",
+    "areaServed": [
+      { "@type": "City", "name": "Curitiba" },
+      { "@type": "City", "name": "São José dos Pinhais" }
+    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "Curitiba", "addressRegion": "PR", "addressCountry": "BR" }
+  }
+  </script>
+
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= Menu ================= -->
+  <header class="header">
+    <nav class="navbar" aria-label="Menu principal">
+      <a class="logo" href="#inicio">[Nome] <em>Fisioterapia</em></a>
+      <div class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#artigos">Artigos</a>
+        <a href="#duvidas">Dúvidas</a>
+      </div>
+      <a class="btn btn--sm" href="#contato">Agendar</a>
+      <button type="button" class="icon-btn menu-btn only-mobile" data-menu-toggle aria-expanded="false" aria-controls="menu-celular" aria-label="Abrir menu">
+        <svg class="i-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+        <svg class="i-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <div id="menu-celular" class="sheet" hidden>
+    <nav aria-label="Menu do celular">
+      <a class="sheet__link" href="#servicos">Serviços <span aria-hidden="true">→</span></a>
+      <a class="sheet__link" href="#equipe">Equipe <span aria-hidden="true">→</span></a>
+      <a class="sheet__link" href="#artigos">Artigos <span aria-hidden="true">→</span></a>
+      <a class="sheet__link" href="#duvidas">Dúvidas <span aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ================= Abertura ================= -->
+    <section id="inicio" class="hero">
+      <svg class="hero__curves draw-load" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <!-- Só duas curvas, longe do texto: uma no topo à direita, outra rente ao rodapé da seção -->
+        <path d="M760,150 C960,70 1160,230 1500,110" fill="none" stroke="#f88ca3" stroke-opacity=".35" stroke-width="1"/>
+        <path d="M-60,830 C320,770 640,880 960,800 S1320,720 1500,770" fill="none" stroke="#6c6d4c" stroke-opacity=".14" stroke-width="1"/>
+      </svg>
+
+      <div class="hero__grid">
+        <div class="hero__text">
+          <h1 class="hero__title">
+            <span class="mask"><span>Cuidado que</span></span>
+            <span class="mask d2"><span>chega até</span></span>
+            <span class="mask d3"><span><em>a sua casa.</em></span></span>
+          </h1>
+          <p class="hero__lead fade">Fisioterapia domiciliar, respiratória e terapia manual em <span>Curitiba e São José dos Pinhais</span> — com tempo, escuta e um plano pensado para você.</p>
+          <div class="hero__ctas fade late">
+            <a class="btn" href="https://wa.me/5541[NUMERO]" target="_blank" rel="noopener">
+              Agendar avaliação
+              <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="link-arrow" href="#servicos">
+              Conhecer os serviços
+              <svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hero__info fade late">
+            <a class="ul" href="tel:+5541[NUMERO]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+              (41) [00000-0000]
+            </a>
+            <span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Curitiba e São José dos Pinhais – PR
+            </span>
+          </div>
+        </div>
+
+        <figure class="hero__fig">
+          <div class="media hero__photo unveil">
+            <div class="parallax">
+              <div class="media__ph">[Foto da fisioterapeuta]</div>
+              <img src="assets/images/hero.jpg" alt="Noemi, fisioterapeuta" width="960" height="1200" fetchpriority="high">
+            </div>
+          </div>
+          <figcaption class="fade late">
+            <strong>Noemi [Sobrenome]</strong>
+            <span class="dot" aria-hidden="true">•</span>
+            <span>CREFITO [00000-F]</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="scroll-cue" href="#abordagem" aria-label="Rolar para baixo" data-scroll-cue>
+        <span class="scroll-cue__mouse" aria-hidden="true"><i></i></span>
+        <span class="scroll-cue__text">Role</span>
+      </a>
+
+      <svg class="wave" aria-hidden="true" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,70 C260,130 470,10 760,52 C1040,92 1220,20 1440,58 L1440,120 L0,120 Z" fill="#6c6d4c"/>
+      </svg>
+    </section>
+
+    <!-- ================= Abordagem ================= -->
+    <section id="abordagem" class="section section--olive manifesto" aria-label="Abordagem">
+      <svg class="manifesto__curves only-desktop" aria-hidden="true" viewBox="0 0 1440 600" preserveAspectRatio="none">
+        <path d="M-40,520 C320,380 520,600 860,430 S1300,260 1480,360" fill="none" stroke="#f9f6eb" stroke-opacity=".18" stroke-width="1"/>
+        <path d="M-40,120 C280,220 600,40 900,140 S1280,240 1480,90" fill="none" stroke="#f88ca3" stroke-opacity=".35" stroke-width="1"/>
+      </svg>
+      <div class="wrap">
+        <p><span class="fill-text">Cada sessão começa ouvindo. Avaliamos com calma, explicamos o porquê de cada exercício e ajustamos o plano conforme você evolui — para que o movimento volte a fazer parte do seu dia.</span></p>
+      </div>
+    </section>
+
+    <!-- ================= Serviços ================= -->
+    <section id="servicos" class="section section--cream">
+      <div class="wrap">
+        <div class="services__head reveal">
+          <h2 class="title">Serviços</h2>
+          <p>Todo tratamento começa com uma avaliação completa e segue um plano individual.</p>
+        </div>
+        <div class="services__list">
+          <a class="service reveal" href="#contato">
+            <div class="service__name"><span class="service__num service__num--1">01</span><h3>Atendimento Domiciliar</h3></div>
+            <p>Fisioterapia completa na sua casa — para pós‑operatório, idosos, pessoas com mobilidade reduzida ou quem prefere não se deslocar. Reabilitação pós‑cirúrgica, equilíbrio, prevenção de quedas e orientação para família e cuidadores.</p>
+            <div class="service__arrow only-desktop"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+          </a>
+          <a class="service reveal" href="#contato">
+            <div class="service__name"><span class="service__num service__num--2">02</span><h3>Fisioterapia Respiratória</h3></div>
+            <p>Técnicas para melhorar a função pulmonar, eliminar secreções e recuperar o fôlego — de crianças a idosos. Higiene brônquica, expansão pulmonar e reabilitação após internação.</p>
+            <div class="service__arrow only-desktop"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+          </a>
+          <a class="service reveal" href="#contato">
+            <div class="service__name"><span class="service__num service__num--3">03</span><h3>Terapia Manual</h3></div>
+            <p>Técnicas com as mãos para aliviar dores, tensões e restrições articulares. Coluna, pescoço e ombros, liberação miofascial e mobilização articular.</p>
+            <div class="service__arrow only-desktop"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Equipe ================= -->
+    <section id="equipe" class="section section--white">
+      <div class="wrap team-layout">
+        <div class="team__head reveal">
+          <h2 class="title">Quem cuida <em>de você.</em></h2>
+          <p class="lead">Uma equipe pequena, de propósito: uma pessoa dedicada inteiramente ao seu tratamento e outra cuidando de tudo ao redor dele.</p>
+        </div>
+
+        <div class="team reveal">
+          <article class="member">
+            <div class="member__photo">
+              <svg class="member__avatar" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="38" r="17"/><path d="M16 96c3-21 17-32 34-32s31 11 34 32z"/></svg>
+              <img src="assets/images/noemi.jpg" alt="Noemi, fisioterapeuta" width="800" height="1000" loading="lazy">
+            </div>
+            <h3 class="member__name">Noemi [Sobrenome]</h3>
+            <p class="member__role">Fisioterapeuta</p>
+          </article>
+
+          <article class="member">
+            <div class="member__photo">
+              <svg class="member__avatar" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="38" r="17"/><path d="M16 96c3-21 17-32 34-32s31 11 34 32z"/></svg>
+              <img src="assets/images/misael.jpg" alt="Misael, gestão e administração" width="800" height="1000" loading="lazy">
+            </div>
+            <h3 class="member__name">Misael [Sobrenome]</h3>
+            <p class="member__role">Gestão e administração</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Caminho do tratamento ================= -->
+    <section class="section section--olive" aria-labelledby="caminho-titulo">
+      <div class="wrap">
+        <h2 id="caminho-titulo" class="title title--narrow reveal">Do primeiro contato <em>à recuperação.</em></h2>
+        <div class="steps-wrap">
+          <span class="steps__line" aria-hidden="true"></span>
+          <ol class="steps">
+            <li class="step reveal"><span class="step__n">1</span><h3>Contato</h3><p>Você nos chama no WhatsApp e conta o que está sentindo.</p></li>
+            <li class="step reveal"><span class="step__n">2</span><h3>Avaliação</h3><p>Na primeira visita, uma avaliação completa dos seus objetivos.</p></li>
+            <li class="step reveal"><span class="step__n">3</span><h3>Plano</h3><p>Definimos juntos frequência, exercícios e metas claras.</p></li>
+            <li class="step reveal"><span class="step__n">4</span><h3>Evolução</h3><p>Sessões em casa e reavaliações para acompanhar cada avanço.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Artigos ================= -->
+    <section id="artigos" class="section section--cream">
+      <div class="wrap">
+        <div class="articles__head reveal">
+          <h2 class="title">Artigos <em>&amp; estudos</em></h2>
+        </div>
+
+        <div class="articles__grid">
+          <a class="feature reveal" href="#artigos">
+            <div class="feature__meta"><b class="cat-resp">Respiratória</b><span class="dot" aria-hidden="true">·</span><i>5 min de leitura</i></div>
+            <h3>Respiração diafragmática: o que é e como praticar em casa</h3>
+            <p>Um passo a passo simples para treinar a respiração que usa melhor o pulmão, com cuidados para quem está se recuperando.</p>
+            <span class="link-arrow">
+              Ler artigo
+              <svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+
+          <div class="art-list">
+            <div>
+              <a class="art-row" href="#artigos"><b class="cat-dom">Domiciliar</b><strong>Cinco ajustes em casa que ajudam a prevenir quedas</strong><i>4 min de leitura</i></a>
+              <a class="art-row" href="#artigos"><b class="cat-man">Terapia manual</b><strong>O que acontece em uma sessão de terapia manual</strong><i>6 min de leitura</i></a>
+              <a class="art-row" href="#artigos"><b class="cat-resp">Respiratória</b><strong>De volta para casa depois da internação: cuidados com o pulmão</strong><i>7 min de leitura</i></a>
+            </div>
+            <a class="link-arrow" href="#artigos">
+              Ver todos os artigos
+              <svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Dúvidas ================= -->
+    <section id="duvidas" class="section section--white">
+      <div class="wrap faq">
+        <h2 class="title reveal">Dúvidas <em>frequentes</em></h2>
+        <div class="faq__list reveal">
+          <details>
+            <summary>Como funciona o atendimento domiciliar?<span class="pm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+            <p>A Noemi vai até a sua casa com todo o material necessário. A sessão acontece no ambiente onde você vive, o que ajuda a treinar movimentos do dia a dia, como levantar da cama ou subir escadas.</p>
+          </details>
+          <details>
+            <summary>Quais regiões são atendidas?<span class="pm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+            <p>Curitiba e São José dos Pinhais. [Se quiser, liste os bairros atendidos.]</p>
+          </details>
+          <details>
+            <summary>Preciso de pedido médico?<span class="pm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+            <p>[Explique se é necessário pedido médico ou se o paciente pode agendar a avaliação diretamente.]</p>
+          </details>
+          <details>
+            <summary>Quanto tempo dura cada sessão?<span class="pm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+            <p>[Duração média da sessão] — a frequência é definida no plano de tratamento.</p>
+          </details>
+          <details>
+            <summary>Atende por convênio?<span class="pm" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+            <p>[Informe se o atendimento é particular, se emite recibo para reembolso e quais convênios aceita.]</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= Contato / Rodapé ================= -->
+  <footer id="contato" class="section--ink">
+    <svg class="contact__curves draw-scroll" aria-hidden="true" viewBox="0 0 1440 800" preserveAspectRatio="none">
+      <path d="M-40,300 C260,120 520,420 760,260 S1180,60 1480,220" fill="none" stroke="#f88ca3" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M-40,360 C280,200 540,480 800,320 S1200,120 1480,290" fill="none" stroke="#9fa77a" stroke-opacity=".35" stroke-width="1"/>
+      <path d="M-40,660 C320,560 600,760 900,640 S1280,520 1480,600" fill="none" stroke="#f9f6eb" stroke-opacity=".12" stroke-width="1"/>
+    </svg>
+    <div class="contact">
+      <h2 class="contact__title">
+        <span class="mask"><span>Agende sua</span></span>
+        <span class="mask d2"><span><em>avaliação.</em></span></span>
+      </h2>
+      <p class="contact__lead reveal">Atendimento no conforto da sua casa, com hora marcada e um plano feito para você.</p>
+      <a class="btn btn--light" href="https://wa.me/5541[NUMERO]" target="_blank" rel="noopener">
+        Chamar no WhatsApp
+        <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+
+      <div class="c-items">
+        <div class="c-item reveal"><small>WhatsApp</small><a class="ul" href="https://wa.me/5541[NUMERO]" target="_blank" rel="noopener">(41) [00000-0000]</a></div>
+        <div class="c-item reveal"><small>Instagram</small><a class="ul" href="https://instagram.com/[usuario]" target="_blank" rel="noopener">@[usuario]</a></div>
+        <div class="c-item reveal"><small>Horário</small><span>[Segunda a sexta, 8h às 18h]<br>Curitiba e São José dos Pinhais – PR</span></div>
+      </div>
+
+      <div class="footer-meta">
+        <span class="brand">[Nome] <em>Fisioterapia</em></span>
+        <small>CREFITO [00000-F] · © <span data-year>2026</span></small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Acessibilidade (canto direito) -->
+  <div class="a11y" data-a11y>
+    <button type="button" class="a11y__toggle" data-a11y-toggle aria-expanded="false" aria-controls="a11y-painel" aria-label="Abrir opções de acessibilidade">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M4.5 8.5 12 10l7.5-1.5M12 10v4.5m0 0L8.5 21M12 14.5l3.5 6.5"/></svg>
+    </button>
+    <div id="a11y-painel" class="a11y__panel" role="dialog" aria-label="Acessibilidade" hidden>
+      <p class="a11y__title">Acessibilidade</p>
+      <div class="a11y__group">
+        <span class="a11y__label">Tamanho do texto <strong data-text-label>normal</strong></span>
+        <div class="a11y__size">
+          <button type="button" data-size="-1" aria-label="Diminuir texto">A<sup>−</sup></button>
+          <button type="button" data-size="0" aria-label="Texto normal">A</button>
+          <button type="button" data-size="1" aria-label="Aumentar texto">A<sup>+</sup></button>
+        </div>
+      </div>
+      <button type="button" class="a11y__switch" data-calm role="switch" aria-checked="false">
+        <span>Reduzir animações</span><i aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Contato rápido: barra no celular, botão redondo no computador -->
+  <nav class="mbar only-mobile" aria-label="Contato rápido">
+    <a class="mbar__call" href="tel:+5541[NUMERO]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Ligar
+    </a>
+    <a class="mbar__wa" href="https://wa.me/5541[NUMERO]" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+      Agendar no WhatsApp
+    </a>
+  </nav>
+  <a class="wa-float only-desktop" href="https://wa.me/5541[NUMERO]" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+  </a>
+</body>
+</html>
