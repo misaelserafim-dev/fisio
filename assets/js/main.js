@@ -111,6 +111,7 @@
 
   /* ---------- Abertura: indicador de rolagem + parallax ---------- */
   var cue = document.querySelector('[data-scroll-cue]');
+  var header = document.querySelector('.header');
   var heroText = document.querySelector('.hero__text');
   var heroFig = document.querySelector('.hero__fig');
   var ticking = false;
@@ -126,6 +127,7 @@
     var vh = window.innerHeight;
 
     if (cue) cue.classList.toggle('is-hidden', y > 60);
+    if (header) header.classList.toggle('is-scrolled', y > 20);
 
     if (motionOff() || y > vh * 1.3) return;
     var mobile = window.innerWidth <= 760;
