@@ -229,8 +229,9 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   gap: 56px 80px; align-items: center;
 }
-.hero__text { display: flex; flex-direction: column; gap: 34px; }
+.hero__text { display: flex; flex-direction: column; gap: 40px; }
 .hero__title {
+  padding: .1em 0 .18em; /* respiro em cima e embaixo do título (compensa o corte das linhas animadas) */
   font-family: var(--serif); font-weight: 300;
   font-size: clamp(48px, 7vw, 104px); line-height: .9; letter-spacing: -.045em;
 }
@@ -593,12 +594,12 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   .mbar a { font-size: 15px; }
   .hero__grid { padding-top: 108px; gap: 44px; }
   .hero--card { margin: 8px; border-radius: 41px; min-height: 0; }
-  .hero--card .hero__grid { padding-top: 148px; gap: 36px; }
+  .hero--card .hero__grid { padding: 148px 28px 0; gap: 56px; }
   .hero--card .hero__text { padding-bottom: 0; }
   .hero__badge { bottom: 16px; padding: 8px 14px; font-size: 12px; }
   .hero__badge strong { font-size: 14px; }
   .hero__title { font-size: clamp(42px, 12vw, 56px); line-height: 1.04; } /* mais ar entre as 3 linhas no celular */
-  .hero__text { gap: 30px; }
+  .hero__text { gap: 34px; }
   .hero__lead { font-size: 18px; }
   .hero__ctas .btn { flex: 1 1 100%; height: 54px; }
   .hero__info { flex-direction: column; gap: 0; }
