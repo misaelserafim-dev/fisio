@@ -565,6 +565,21 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 
 /* ---------- 7. Celular ---------- */
 @media (max-width: 760px) {
+  /* Etapas como linha do tempo vertical: número à esquerda, linha ligando, texto ao lado */
+  .steps { grid-template-columns: 1fr; gap: 0; }
+  .step {
+    position: relative; display: grid; grid-template-columns: 56px 1fr;
+    column-gap: 20px; row-gap: 6px; padding-bottom: 44px;
+  }
+  .step:last-child { padding-bottom: 0; }
+  .step::before {
+    content: ""; position: absolute; left: 27.5px; top: 64px; bottom: 8px;
+    width: 1px; background: rgba(249, 246, 240, .35);
+  }
+  .step:last-child::before { display: none; }
+  .step__n { grid-row: 1 / span 2; }
+  .step h3 { margin-top: 12px; font-size: 24px; }
+  .step p { grid-column: 2; font-size: 16px; }
   /* Raios concêntricos: menu (pílula de 58px → raio 29) a 12px da borda do cartão → cartão com raio 29 + 12 = 41 */
   .header { top: 20px; padding: 0 20px; }
   .header.is-scrolled { padding: 0 12px; }
