@@ -274,9 +274,6 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .hero--card .hero__info svg { color: var(--rose-light); }
 .hero--card .hero__curves path:nth-child(2) { stroke: var(--cream); stroke-opacity: .18; }
 .hero--card .hero__fig { position: relative; isolation: isolate; align-self: center; justify-self: center; gap: 0; max-width: 440px; }
-.hero__dial { position: absolute; z-index: -1; left: 50%; top: 50%; width: 175%; max-width: none; aspect-ratio: 1; transform: translate(-50%, -50%); pointer-events: none; overflow: visible; }
-.hero__dial { animation: dialIn 1.6s cubic-bezier(.19, 1, .22, 1) .3s both; }
-@keyframes dialIn { from { opacity: 0; transform: translate(-50%, -50%) rotate(-25deg) scale(.92); } to { opacity: 1; transform: translate(-50%, -50%); } }
 .hero--card .hero__photo { border-radius: 999px 999px 32px 32px; background: #8d8e6c; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .55); }
 .hero--card .hero__photo .media__ph { background: linear-gradient(170deg, #b9b897 0%, #9a9a76 60%, #85865f 100%); color: var(--ink); }
 .hero__badge {
@@ -633,7 +630,6 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .calm *, .calm *::before, .calm *::after { animation: none !important; transition: none !important; }
 .calm .mask > span, .calm .fade, .calm .reveal, .calm .grow { transform: none !important; opacity: 1 !important; }
 .calm .unveil { clip-path: none !important; }
-.calm .hero__dial { opacity: 1 !important; transform: translate(-50%, -50%) !important; }
 .calm path { stroke-dashoffset: 0 !important; }
 .calm .fill-text { background: none !important; color: var(--cream) !important; }
 @media (prefers-reduced-motion: reduce) {
@@ -641,7 +637,6 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   html { scroll-behavior: auto; }
   .mask > span, .fade, .reveal, .grow { transform: none !important; opacity: 1 !important; }
   .unveil { clip-path: none !important; }
-  .hero__dial { opacity: 1 !important; transform: translate(-50%, -50%) !important; }
   path { stroke-dashoffset: 0 !important; }
   .fill-text { background: none !important; color: var(--cream) !important; }
 }
