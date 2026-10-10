@@ -259,7 +259,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   min-height: 100svh; display: flex;
   background:
     radial-gradient(120% 90% at 85% 0%, rgba(248, 185, 198, .16) 0%, transparent 45%),
-    linear-gradient(160deg, #637891 0%, #4a5d73 45%, #2f3e50 100%); /* azul acinzentado que combina com o oliva */
+    linear-gradient(160deg, #7a7b57 0%, #5c5d40 45%, #3d3e29 100%);
   color: var(--cream); overflow: hidden; overflow: clip;
 }
 .hero--card .hero__grid { width: 100%; padding: 200px var(--gutter) clamp(72px, 8vw, 120px); align-items: center; }
