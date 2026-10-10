@@ -509,17 +509,6 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   transition: background-color .4s;
 }
 .wa-float:hover { background: var(--olive); color: var(--white); }
-.mbar {
-  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; gap: 8px; padding: 8px;
-  border-radius: 999px; background: rgba(249, 246, 240, .78);
-  backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border: 1px solid rgba(255, 255, 255, .7); box-shadow: 0 18px 40px -18px rgba(35, 36, 26, .45);
-}
-.mbar a {
-  flex: 1; height: 54px; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-size: 16px; font-weight: 500; text-decoration: none;
-}
-.mbar__wa { background: var(--ink); color: var(--cream); }
 
 /* ---------- 6. Animações e efeitos de rolagem ---------- */
 @keyframes lineUp { from { transform: translateY(105%); } to { transform: none; } }
@@ -584,14 +573,11 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   :root { --gutter: 20px; }
   .nav-links, .only-desktop { display: none !important; }
   .only-mobile { display: inline-flex !important; }
-  .mbar.only-mobile { display: flex !important; }
   .navbar { width: 100%; padding-left: 18px; }
   .logo { margin-right: auto; }
-  .contact { padding-bottom: 130px; } /* espaço para a barra de contato */
 
   .section { padding: 112px 0; }
   .hero__curves { display: none; } /* no celular o texto ocupa a tela toda */
-  .mbar a { font-size: 15px; }
   .hero__grid { padding-top: 108px; gap: 44px; }
   .hero--card { margin: 8px; border-radius: 41px; min-height: 0; }
   .hero--card .hero__grid { padding: 200px 28px 0; gap: 104px; }
@@ -615,7 +601,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   .faq__list { grid-column: auto; }
   .faq summary { font-size: 20px; min-height: 76px; }
   .scroll-cue { display: none; } /* no celular a barra de contato já ocupa o rodapé da tela */
-  .a11y { top: auto; bottom: 96px; transform: none; }
+  .a11y { top: auto; bottom: 24px; transform: none; }
   .a11y__toggle { width: 46px; height: 46px; }
   .a11y__toggle:hover, .a11y__toggle[aria-expanded="true"] { width: 46px; }
   .a11y__panel { top: auto; bottom: 0; transform: none; right: 56px; width: min(272px, calc(100vw - 80px)); animation: none; }
