@@ -426,7 +426,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 }
 .contact__title {
   font-family: var(--serif); font-weight: 300;
-  font-size: clamp(54px, 10vw, 150px); line-height: .95; letter-spacing: -.045em;
+  font-size: clamp(40px, 6vw, 88px); line-height: .98; letter-spacing: -.035em;
 }
 .contact__title em { color: var(--rose); }
 .contact__lead { margin-top: 36px; max-width: 28em; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.65; color: #d9d7c6; }
@@ -497,24 +497,12 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .a11y__switch[aria-checked="true"] i::after { transform: translateX(18px); }
 @keyframes panelIn { from { opacity: 0; transform: translate(10px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
 
-/* Rodapé em cartão: centralizado (não vai de ponta a ponta), borda suave e dois tons sólidos */
-.footer--card {
-  --fr: 36px; max-width: 1240px; margin: 24px auto; border-radius: var(--fr);
-  background: var(--ink);
-  border: 1px solid rgba(35, 36, 26, .12);
-  box-shadow: 0 30px 80px -40px rgba(35, 36, 26, .45);
-}
+/* Rodapé de ponta a ponta, em dois tons sólidos */
+.footer--card { background: var(--ink); }
 .footer--card .contact { padding-bottom: clamp(72px, 9vw, 112px); }
 .footer-bottom { text-align: center; background: #33342a; padding: clamp(48px, 6vw, 72px) 24px clamp(40px, 5vw, 56px); }
 .footer-bottom .c-items { max-width: 1000px; margin: 0 auto; }
 .footer-bottom .footer-meta { margin-top: clamp(48px, 6vw, 72px); }
-@keyframes footerIn {
-  from { transform: scale(.94) translateY(40px); border-radius: 72px; opacity: .6; }
-  to   { transform: none; border-radius: var(--fr); opacity: 1; }
-}
-@supports (animation-timeline: view()) {
-  .footer--card { animation: footerIn linear both; animation-timeline: view(); animation-range: entry 0% cover 25%; }
-}
 
 /* Contato rápido */
 .wa-float {
@@ -581,7 +569,6 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 
 /* ---------- 7. Celular ---------- */
 @media (max-width: 760px) {
-  .footer--card { --fr: 41px; margin: 8px; }
   .footer-bottom { padding-left: 20px; padding-right: 20px; }
   /* Etapas como linha do tempo vertical: número à esquerda, linha ligando, texto ao lado */
   .steps { grid-template-columns: 1fr; gap: 0; }
