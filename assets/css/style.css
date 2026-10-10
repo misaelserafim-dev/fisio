@@ -229,7 +229,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   gap: 56px 80px; align-items: center;
 }
-.hero__text { display: flex; flex-direction: column; gap: 40px; }
+.hero__text { display: flex; flex-direction: column; gap: 48px; }
 .hero__title {
   padding: .1em 0 .18em; /* respiro em cima e embaixo do título (compensa o corte das linhas animadas) */
   font-family: var(--serif); font-weight: 300;
@@ -262,7 +262,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
     linear-gradient(160deg, #7a7b57 0%, #5c5d40 45%, #3d3e29 100%);
   color: var(--cream); overflow: hidden; overflow: clip;
 }
-.hero--card .hero__grid { width: 100%; padding-top: 184px; align-items: end; }
+.hero--card .hero__grid { width: 100%; padding-top: 220px; align-items: end; }
 .hero--card .hero__text { align-self: center; padding-bottom: clamp(56px, 7vw, 96px); }
 .hero--card .hero__title { color: var(--cream); }
 .hero--card .hero__title em { color: var(--rose-light); }
@@ -589,17 +589,17 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   .logo { margin-right: auto; }
   .contact { padding-bottom: 130px; } /* espaço para a barra de contato */
 
-  .section { padding: 72px 0; }
+  .section { padding: 112px 0; }
   .hero__curves { display: none; } /* no celular o texto ocupa a tela toda */
   .mbar a { font-size: 15px; }
   .hero__grid { padding-top: 108px; gap: 44px; }
   .hero--card { margin: 8px; border-radius: 41px; min-height: 0; }
-  .hero--card .hero__grid { padding: 148px 28px 0; gap: 56px; }
+  .hero--card .hero__grid { padding: 200px 28px 0; gap: 104px; }
   .hero--card .hero__text { padding-bottom: 0; }
   .hero__badge { bottom: 16px; padding: 8px 14px; font-size: 12px; }
   .hero__badge strong { font-size: 14px; }
   .hero__title { font-size: clamp(42px, 12vw, 56px); line-height: 1.04; } /* mais ar entre as 3 linhas no celular */
-  .hero__text { gap: 34px; }
+  .hero__text { gap: 44px; }
   .hero__lead { font-size: 18px; }
   .hero__ctas .btn { flex: 1 1 100%; height: 54px; }
   .hero__info { flex-direction: column; gap: 0; }
