@@ -181,8 +181,8 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   padding: 6px 6px 6px 24px; border-radius: 999px;
   background: rgba(249, 246, 240, .62);
   backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px);
-  border: 1px solid rgba(255, 255, 255, .6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7), 0 12px 40px -18px rgba(35, 36, 26, .35);
+  border: 0;
+  box-shadow: 0 12px 40px -18px rgba(35, 36, 26, .35);
 }
 .logo {
   font-family: var(--serif); font-size: 18px; letter-spacing: -.01em;
@@ -257,9 +257,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .hero--card {
   margin: 0; border-radius: 0; padding-bottom: 0;
   min-height: 100svh; display: flex;
-  background:
-    radial-gradient(120% 90% at 85% 0%, rgba(248, 185, 198, .16) 0%, transparent 45%),
-    linear-gradient(160deg, #7a7b57 0%, #5c5d40 45%, #3d3e29 100%);
+  background: #5c5d40; /* verde-oliva sólido, sem degradê */
   color: var(--cream); overflow: hidden; overflow: clip;
 }
 .hero--card .hero__grid { width: 100%; padding: 200px var(--gutter) clamp(72px, 8vw, 120px); align-items: center; }
