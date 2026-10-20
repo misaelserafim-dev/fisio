@@ -1,0 +1,5 @@
+# Permite que todos os buscadores leiam o site
+User-agent: *
+Allow: /
+
+Sitemap: https://misaelserafim-dev.github.io/fisio/sitemap.xml

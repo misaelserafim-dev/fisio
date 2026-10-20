@@ -189,6 +189,25 @@
     document.querySelectorAll('.reveal').forEach(function (n) { io.observe(n); });
   }
 
+  /* ---------- Dados estruturados das Dúvidas ----------
+     Montados a partir das próprias perguntas da página: ao editar uma dúvida no HTML,
+     o Google recebe a versão nova sem precisar mexer em dois lugares. */
+  var faq = document.querySelectorAll('#duvidas details');
+  if (faq.length) {
+    var data = {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: Array.prototype.map.call(faq, function (d) {
+        var q = d.querySelector('summary'), a = d.querySelector('p');
+        return { '@type': 'Question', name: q.textContent.trim(),
+          acceptedAnswer: { '@type': 'Answer', text: a ? a.textContent.trim() : '' } };
+      })
+    };
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify(data);
+    document.head.appendChild(ld);
+  }
+
   /* ---------- Ano no rodapé ---------- */
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();

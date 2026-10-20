@@ -7,11 +7,65 @@
   <meta name="description" content="Fisioterapia domiciliar, fisioterapia respiratória e terapia manual em Curitiba e São José dos Pinhais. Atendimento individual, no conforto da sua casa.">
   <meta name="theme-color" content="#f9f6f0">
 
+  <!-- Endereço oficial do site. Ao comprar o domínio, troque https://misaelserafim-dev.github.io/fisio/ pelo novo em todo este arquivo, no sitemap.xml e no robots.txt -->
+  <link rel="canonical" href="https://misaelserafim-dev.github.io/fisio/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Prévia ao compartilhar no WhatsApp, Instagram e Facebook (a imagem precisa de endereço completo) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="[Nome] Fisioterapia">
+  <meta property="og:site_name" content="[Nome] Fisioterapia">
+  <meta property="og:title" content="[Nome] Fisioterapia — Fisioterapia no conforto da sua casa">
   <meta property="og:description" content="Fisioterapia domiciliar, respiratória e terapia manual em Curitiba e São José dos Pinhais.">
-  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:url" content="https://misaelserafim-dev.github.io/fisio/">
+  <meta property="og:image" content="https://misaelserafim-dev.github.io/fisio/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="[Nome] Fisioterapia — atendimento domiciliar em Curitiba e São José dos Pinhais">
   <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Dados estruturados: dizem ao Google que é uma clínica de fisioterapia, onde atende e como falar com ela -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physiotherapy",
+    "@id": "https://misaelserafim-dev.github.io/fisio/#clinica",
+    "name": "[Nome] Fisioterapia",
+    "description": "Fisioterapia domiciliar, fisioterapia respiratória e terapia manual em Curitiba e São José dos Pinhais.",
+    "url": "https://misaelserafim-dev.github.io/fisio/",
+    "image": "https://misaelserafim-dev.github.io/fisio/assets/images/og-image.jpg",
+    "logo": "https://misaelserafim-dev.github.io/fisio/assets/images/favicon.svg",
+    "telephone": "+55-41-[NUMERO]",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Curitiba",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Curitiba" },
+      { "@type": "City", "name": "São José dos Pinhais" }
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }],
+    "availableService": [
+      { "@type": "MedicalTherapy", "name": "Atendimento domiciliar" },
+      { "@type": "MedicalTherapy", "name": "Fisioterapia respiratória" },
+      { "@type": "MedicalTherapy", "name": "Terapia manual" }
+    ],
+    "employee": {
+      "@type": "Person",
+      "name": "Noemi [Sobrenome]",
+      "jobTitle": "Fisioterapeuta",
+      "identifier": "CREFITO-8 [00000-F]"
+    },
+    "sameAs": ["https://www.instagram.com/[usuario]"]
+  }
+  </script>
 
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 
@@ -30,21 +84,6 @@
       var z = localStorage.getItem('fisio-zoom');
       if (z) c.style.setProperty('--zoom', z);
     } catch (e) {}
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Physiotherapy",
-    "name": "[Nome] Fisioterapia",
-    "description": "Fisioterapia domiciliar, fisioterapia respiratória e terapia manual.",
-    "telephone": "+55-41-[NUMERO]",
-    "areaServed": [
-      { "@type": "City", "name": "Curitiba" },
-      { "@type": "City", "name": "São José dos Pinhais" }
-    ],
-    "address": { "@type": "PostalAddress", "addressLocality": "Curitiba", "addressRegion": "PR", "addressCountry": "BR" }
-  }
   </script>
 
   <script src="assets/js/main.js" defer></script>
