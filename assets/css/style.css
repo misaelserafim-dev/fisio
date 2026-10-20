@@ -280,7 +280,18 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 }
 .hero--card .hero__grid { width: 100%; padding: 200px var(--gutter) calc(clamp(72px, 8vw, 120px) + var(--footer-r)); align-items: center; }
 /* Serviços sobe por cima do fim da abertura, com os cantos de cima redondos (mesma curva do rodapé) */
-#servicos { z-index: 1; margin-top: calc(var(--footer-r) * -1); border-radius: var(--footer-r) var(--footer-r) 0 0; }
+#servicos {
+  z-index: 1; margin-top: calc(var(--footer-r) * -1); border-radius: var(--footer-r) var(--footer-r) 0 0;
+  box-shadow: 0 -24px 60px -20px rgba(20, 21, 14, .45); /* sombra na borda: parece passar por cima */
+}
+/* A abertura fica numa camada própria (o texto não escapa por cima de Serviços)
+   e escurece aos poucos enquanto Serviços sobe — o JS controla --dim de 0 a 1 */
+.hero--card { isolation: isolate; }
+.hero--card::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 100%, #14150e 0%, #1d1e15 60%, #23241a 100%);
+  opacity: calc(var(--dim, 0) * .82);
+}
 .hero--card .hero__text { align-self: center; }
 .hero--card .hero__title { color: var(--cream); }
 .hero--card .hero__title em { color: var(--rose-light); }

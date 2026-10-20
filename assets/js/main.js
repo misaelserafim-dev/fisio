@@ -112,6 +112,7 @@
   /* ---------- Abertura: indicador de rolagem + parallax ---------- */
   var cue = document.querySelector('[data-scroll-cue]');
   var header = document.querySelector('.header');
+  var hero = document.querySelector('.hero');
   var heroText = document.querySelector('.hero__text');
   var heroFig = document.querySelector('.hero__bg');
   var ticking = false;
@@ -127,6 +128,12 @@
     var vh = window.innerHeight;
 
     if (cue) cue.classList.toggle('is-hidden', y > 60);
+
+    // Escurece a abertura conforme Serviços passa por cima (não é movimento, então vale sempre)
+    if (hero) {
+      var dim = Math.min(1, Math.max(0, y / (hero.offsetHeight * 0.85)));
+      hero.style.setProperty('--dim', dim.toFixed(3));
+    }
     if (header) header.classList.toggle('is-scrolled', y > 20);
 
     if (motionOff() || y > vh * 1.3) return;
