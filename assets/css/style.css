@@ -150,7 +150,11 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   transition: background-color .4s, color .4s;
 }
 .btn:hover { background: var(--olive); color: var(--white); }
-.btn--sm { height: 44px; padding: 0 20px; font-size: 14px; }
+.btn--sm { height: 44px; padding: 0 20px; font-size: 14px; gap: 8px; }
+.btn .ic--wa { width: 20px; height: 20px; flex: none; }
+.btn--sm .ic--wa { width: 18px; height: 18px; }
+.btn:hover .ic--wa { transform: none; }
+.btn .only-desktop { margin-left: -8px; } /* compensa o gap entre "Agendar" e "pelo WhatsApp" */
 .btn--light { background: var(--cream); color: var(--ink); }
 .btn--light:hover { background: var(--white); color: var(--ink); }
 .btn .ic, .link-arrow .ic { transition: transform .4s var(--ease); }
@@ -200,7 +204,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .logo {
   font-family: var(--serif); font-size: 18px; letter-spacing: -.01em;
   text-decoration: none; white-space: nowrap; padding-right: 14px;
-  display: inline-flex; align-items: center; min-height: 44px; /* área de toque */
+  display: inline-block; line-height: 44px; min-height: 44px; /* área de toque, sem perder o espaço entre as palavras */
 }
 .logo em { color: var(--olive); }
 .nav-links { display: flex; align-items: center; }
@@ -348,6 +352,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   gap: 16px 48px; align-items: start; padding: 44px 4px;
   border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink);
 }
+.service__arrow { pointer-events: none; } /* só enfeite, não é clicável */
 .service__name { display: flex; gap: 20px; align-items: baseline; }
 .service__num { font: 16px var(--serif); }
 .service__num--1 { color: var(--olive); }
