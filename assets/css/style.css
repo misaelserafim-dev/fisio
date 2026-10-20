@@ -114,6 +114,13 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 /* Cada seção escura com sua cor, para a página não ficar só verde */
 .section--clay { background: var(--clay-deep); }
 .section--plum { background: var(--plum-deep); }
+/* Curvas invertidas: Equipe (em cima) e Artigos (embaixo) entram arredondadas por cima da faixa ameixa */
+#equipe { z-index: 1; border-radius: 0 0 var(--footer-r) var(--footer-r); }
+#artigos { z-index: 1; border-radius: var(--footer-r) var(--footer-r) 0 0; margin-top: calc(var(--footer-r) * -1); }
+.section--plum { margin-top: calc(var(--footer-r) * -1); padding-top: calc(128px + var(--footer-r)); padding-bottom: calc(128px + var(--footer-r)); }
+@media (max-width: 760px) {
+  .section--plum { padding-top: calc(112px + var(--footer-r)); padding-bottom: calc(112px + var(--footer-r)); }
+}
 .section--ink { position: relative; background: var(--ink); color: var(--cream); overflow: hidden; overflow: clip; }
 
 .title {
