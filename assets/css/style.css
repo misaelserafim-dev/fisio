@@ -282,7 +282,12 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 /* Serviços sobe por cima do fim da abertura, com os cantos de cima redondos (mesma curva do rodapé) */
 #servicos {
   z-index: 1; margin-top: calc(var(--footer-r) * -1); border-radius: var(--footer-r) var(--footer-r) 0 0;
-  box-shadow: 0 -24px 60px -20px rgba(20, 21, 14, .45); /* sombra na borda: parece passar por cima */
+}
+/* Sombra só na borda de cima (parece passar por cima da abertura); recortada para não vazar embaixo */
+#servicos::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 240px; z-index: -1; pointer-events: none;
+  border-radius: inherit; box-shadow: 0 -24px 60px -20px rgba(20, 21, 14, .45);
+  clip-path: inset(-120px 0 50% 0);
 }
 /* A abertura fica numa camada própria (o texto não escapa por cima de Serviços)
    e escurece aos poucos enquanto Serviços sobe — o JS controla --dim de 0 a 1 */
