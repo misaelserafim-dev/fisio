@@ -67,7 +67,7 @@
   --olive: #6c6d4c;        /* cor principal */
   --olive-deep: #34352a;   /* fundo escuro padrão */
   --clay-deep: #7d4f3b;    /* Abordagem: argila */
-  --lavender-deep: #4c5275; /* Caminho: lavanda */
+  --plum-deep: #5a3d4c;    /* Caminho: ameixa, combina com o rosa */
   --sage: #9fa77a;
   --lavender: #6b7199;     /* complementar */
   --clay: #a8613f;         /* quente */
@@ -113,7 +113,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .section--olive { background: var(--olive-deep); color: var(--cream); } /* mais escuro que a abertura, para não repetir o mesmo verde */
 /* Cada seção escura com sua cor, para a página não ficar só verde */
 .section--clay { background: var(--clay-deep); }
-.section--lavender { background: var(--lavender-deep); }
+.section--plum { background: var(--plum-deep); }
 .section--ink { position: relative; background: var(--ink); color: var(--cream); overflow: hidden; overflow: clip; }
 
 .title {
