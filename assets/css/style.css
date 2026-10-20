@@ -65,6 +65,7 @@
   --line-soft: #e3dfc8;
 
   --olive: #6c6d4c;        /* cor principal */
+  --olive-deep: #34352a;   /* fundo das seções escuras (Abordagem e Caminho) */
   --sage: #9fa77a;
   --lavender: #6b7199;     /* complementar */
   --clay: #a8613f;         /* quente */
@@ -107,7 +108,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .section { position: relative; padding: 128px 0; }
 .section--cream { background: var(--cream); }
 .section--white { background: var(--white); }
-.section--olive { background: var(--olive); color: var(--cream); }
+.section--olive { background: var(--olive-deep); color: var(--cream); } /* mais escuro que a abertura, para não repetir o mesmo verde */
 .section--ink { position: relative; background: var(--ink); color: var(--cream); overflow: hidden; overflow: clip; }
 
 .title {
