@@ -74,7 +74,7 @@
   --rose: #f88ca3;         /* detalhes */
   --rose-icon: #e27a93;
   --rose-text: #b84a63;    /* rosa para texto em fundo claro */
-  --rose-light: #f8b9c6;
+  --rose-light: #fac9d3;   /* 4,6:1 sobre o verde da abertura */
 
   --serif: "Fraunces", "Fraunces Fallback", Georgia, serif;
   --sans: "DM Sans", "DM Sans Fallback", system-ui, sans-serif;
@@ -160,7 +160,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
   font-weight: 500; font-size: 15px; letter-spacing: .02em; text-decoration: none; color: var(--ink);
 }
-.link-arrow .ic { color: var(--rose-icon); }
+.link-arrow .ic { color: var(--rose-text); }
 
 .ul {
   text-decoration: none;
@@ -200,6 +200,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .logo {
   font-family: var(--serif); font-size: 18px; letter-spacing: -.01em;
   text-decoration: none; white-space: nowrap; padding-right: 14px;
+  display: inline-flex; align-items: center; min-height: 44px; /* área de toque */
 }
 .logo em { color: var(--olive); }
 .nav-links { display: flex; align-items: center; }
@@ -231,7 +232,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   border-bottom: 1px solid rgba(35, 36, 26, .1);
   font-family: var(--serif); font-size: 24px; text-decoration: none;
 }
-.sheet__link span { color: var(--rose-icon); font-size: 18px; }
+.sheet__link span { color: var(--rose-text); font-size: 18px; }
 .sheet__link:last-child { border-bottom: 0; }
 
 /* Abertura */
@@ -350,11 +351,11 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .service__name { display: flex; gap: 20px; align-items: baseline; }
 .service__num { font: 16px var(--serif); }
 .service__num--1 { color: var(--olive); }
-.service__num--2 { color: var(--lavender); }
-.service__num--3 { color: var(--clay); }
+.service__num--2 { color: #555b85; } /* lavanda mais escura: 6:1 */
+.service__num--3 { color: #8a4e31; } /* argila mais escura: 6:1 */
 .service h3 { font: 400 clamp(30px, 3vw, 42px)/1.05 var(--serif); letter-spacing: -.02em; }
 .service p { font-size: 17px; line-height: 1.65; color: var(--text-soft); }
-.service__arrow { display: flex; justify-content: flex-end; color: var(--rose-icon); }
+.service__arrow { display: flex; justify-content: flex-end; color: var(--rose-text); }
 
 /* Equipe */
 .team-layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px 96px; align-items: center; }
@@ -371,7 +372,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .member__name { font: 400 clamp(22px, 2vw, 28px)/1.15 var(--serif); letter-spacing: -.015em; }
 .member__role {
   margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--line-soft);
-  font-size: 14px; letter-spacing: .03em; color: var(--rose-text);
+  font-size: 15px; letter-spacing: .03em; color: var(--rose-text);
 }
 
 /* Caminho */
@@ -462,13 +463,13 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   border-left: 1px solid rgba(249, 246, 240, .16);
 }
 .c-item:first-child { border-left: 0; }
-.c-item small { font-size: 13px; color: #b9b79a; }
-.c-item a { font: 26px var(--serif); color: var(--cream); }
+.c-item small { font-size: 15px; color: #b9b79a; }
+.c-item a { font: 26px var(--serif); color: var(--cream); display: inline-flex; align-items: center; min-height: 44px; }
 .c-item span { font-size: 18px; line-height: 1.55; color: #ebe9da; }
 .footer-meta { margin-top: 96px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .footer-meta .brand { font: 300 24px var(--serif); }
 .footer-meta .brand em { color: var(--rose); }
-.footer-meta small { font-size: 14px; color: #b9b79a; }
+.footer-meta small { font-size: 15px; color: #b9b79a; }
 
 /* Acessibilidade (canto direito) */
 .a11y { position: fixed; right: 0; top: 50%; z-index: 70; transform: translateY(-50%); }
@@ -665,7 +666,7 @@ html:has(.footer--card), body:has(.footer--card) { background: var(--white); }
   .team { gap: 16px; }
   .member__photo { margin-bottom: 14px; }
   .member__name { font-size: 19px; }
-  .member__role { font-size: 14px; }
+  .member__role { font-size: 15px; }
   .services__head, .articles__head { margin-bottom: 36px; }
   .service { padding: 32px 0; gap: 12px; }
   .steps-wrap { margin-top: 48px; }
