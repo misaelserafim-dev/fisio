@@ -81,21 +81,6 @@
   --gutter: 32px;
 }
 
-/* Tema "Sálvia e terracota" (em teste): o rosa vira terracota.
-   Para voltar ao rosa, é só apagar este bloco e o fundo da abertura volta a ser #5c5d40. */
-:root {
-  --ink: #2a2a1f;
-  --sage: #a3ab82;
-  --rose: #c9784f;         /* terracota dos detalhes */
-  --rose-icon: #b36a47;
-  --rose-text: #8f4f30;    /* terracota para texto em fundo claro (5,8:1) */
-  --rose-light: #e7b99c;   /* terracota claro sobre o verde */
-  --hero-bg: #6c6d4c;
-  --rose-border: #e6c4b0;
-  --rose-wash: #f6e9e0;
-  --rose-select: #efd6c6;
-}
-
 /* ---------- 3. Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -114,7 +99,7 @@ a { color: inherit; }
 h1, h2, h3, p, figure { margin: 0; }
 em { font-style: italic; }
 :focus-visible { outline: 2px solid var(--rose-text); outline-offset: 4px; }
-::selection { background: var(--rose-select, #f6dbe1); color: var(--ink); }
+::selection { background: #f6dbe1; color: var(--ink); }
 
 main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
@@ -272,7 +257,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .hero--card {
   margin: 0; border-radius: 0; padding-bottom: 0;
   min-height: 100svh; display: flex;
-  background: var(--hero-bg, #5c5d40); /* verde-oliva sólido, sem degradê */
+  background: #5c5d40; /* verde-oliva sólido, sem degradê */
   color: var(--cream); overflow: hidden; overflow: clip;
 }
 .hero--card .hero__grid { width: 100%; padding: 200px var(--gutter) calc(clamp(72px, 8vw, 120px) + var(--footer-r)); align-items: center; }
@@ -424,11 +409,11 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq .pm {
-  flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--rose-border, #f3c3ce);
+  flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #f3c3ce;
   display: flex; align-items: center; justify-content: center;
-  color: var(--rose-icon); transition: transform .5s var(--ease), background-color .4s, color .4s;
+  color: #d9768d; transition: transform .5s var(--ease), background-color .4s, color .4s;
 }
-.faq summary:hover .pm { background: var(--rose-wash, #fdeef1); }
+.faq summary:hover .pm { background: #fdeef1; }
 .faq details[open] .pm { transform: rotate(180deg); background: var(--rose); border-color: var(--rose); color: var(--white); }
 .faq details p { margin: 0 0 28px; max-width: 40em; font-size: 18px; line-height: 1.7; color: var(--text); }
 
