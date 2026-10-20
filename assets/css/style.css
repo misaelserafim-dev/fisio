@@ -498,16 +498,19 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 /* Rodapé de ponta a ponta, claro, em dois tons sólidos */
 /* Atrás do rodapé fica branco (como Dúvidas), para os cantos e as laterais não mostrarem o creme */
 html:has(.footer--card), body:has(.footer--card) { background: var(--white); }
-.footer--card {
-  background: #ecebdc; color: var(--ink);
+.footer--card { background: var(--white); color: var(--ink); }
+:root { --footer-r: clamp(40px, 7vw, 120px); --footer-r2: clamp(32px, 5vw, 88px); }
+/* O cartão que tem fundo e curva é o .contact: é ele que abre até as laterais */
+.footer--card .contact {
+  max-width: none; background: #ecebdc;
   border-radius: var(--footer-r) var(--footer-r) 0 0;
+  padding-bottom: calc(clamp(72px, 9vw, 112px) + var(--footer-r2));
 }
 :root { --footer-r: clamp(40px, 7vw, 120px); }
-.footer--card .contact { padding-bottom: clamp(72px, 9vw, 112px); }
 .footer--card .contact__title { color: var(--ink); }
 .footer--card .contact__title em { color: var(--rose-text); }
 .footer--card .contact__lead { color: var(--text-soft); }
-.footer-bottom { text-align: center; background: #e1dfcb; border-radius: clamp(32px, 5vw, 88px) clamp(32px, 5vw, 88px) 0 0; padding: clamp(48px, 6vw, 72px) 24px clamp(40px, 5vw, 56px); }
+.footer-bottom { position: relative; margin-top: calc(var(--footer-r2) * -1); text-align: center; background: #e1dfcb; border-radius: var(--footer-r2) var(--footer-r2) 0 0; padding: clamp(48px, 6vw, 72px) 24px clamp(40px, 5vw, 56px); }
 .footer-bottom .c-items { max-width: 1000px; margin: 0 auto; }
 .footer-bottom .footer-meta { margin-top: clamp(48px, 6vw, 72px); }
 .footer--card .c-item { border-color: rgba(35, 36, 26, .14); }
@@ -568,8 +571,8 @@ html:has(.footer--card), body:has(.footer--card) { background: var(--white); }
   .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 22%; }
   .parallax { animation: parallax linear both; animation-timeline: view(); }
   .grow { animation: grow linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
-  .footer--card { --footer-in: 7%; animation: footerWiden linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
-  .contact { transform-origin: 50% 100%; animation: contactGrow linear both; animation-timeline: view(); animation-range: entry 0% cover 50%; }
+  .footer--card .contact { --footer-in: 7%; animation: footerWiden linear both; animation-timeline: view(); animation-range: entry 0% cover 50%; }
+  .footer--card .contact > * { transform-origin: 50% 100%; animation: contactGrow linear both; animation-timeline: view(); animation-range: entry 0% cover 50%; }
   .steps__line { animation: growX linear both; animation-timeline: view(); animation-range: entry 20% cover 50%; }
   .draw-scroll path {
     stroke-dasharray: 2600; stroke-dashoffset: 2600;
@@ -652,11 +655,12 @@ html:has(.footer--card), body:has(.footer--card) { background: var(--white); }
 
 /* ---------- 8. Menos movimento ---------- */
 .calm *, .calm *::before, .calm *::after { animation: none !important; transition: none !important; }
-.calm .mask > span, .calm .fade, .calm .reveal, .calm .grow, .calm .contact { transform: none !important; opacity: 1 !important; }
-.calm .unveil { clip-path: none !important; }
+.calm .mask > span, .calm .fade, .calm .reveal, .calm .grow, .calm .contact, .calm .contact > * { transform: none !important; opacity: 1 !important; }
+.calm .unveil, .calm .contact { clip-path: none !important; }
 .calm path { stroke-dashoffset: 0 !important; }
 .calm .fill-text { background: none !important; color: var(--cream) !important; }
 @media (prefers-reduced-motion: reduce) {
+  .footer--card .contact { clip-path: none !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
   .mask > span, .fade, .reveal, .grow { transform: none !important; opacity: 1 !important; }
