@@ -151,6 +151,16 @@
   window.addEventListener('scroll', function () {
     if (!ticking) { ticking = true; requestAnimationFrame(updateHero); }
   }, { passive: true });
+  // Indicador: logo acima da curva de Serviços; se a curva estiver abaixo da tela, preso ao fundo da tela
+  var servicos = document.getElementById('servicos');
+  function placeCue() {
+    if (!cue || !servicos) return;
+    var top = servicos.getBoundingClientRect().top + window.scrollY;
+    cue.classList.toggle('is-fixed', top > window.innerHeight - 8);
+  }
+  placeCue();
+  window.addEventListener('resize', placeCue);
+  window.addEventListener('load', placeCue);
   window.addEventListener('resize', updateHero);
   reduceMotionQuery.addEventListener('change', function () { if (motionOff()) resetHero(); });
 
