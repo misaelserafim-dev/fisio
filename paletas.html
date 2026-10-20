@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Paletas com creme</title>
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<style>
+@font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-var.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-var-italic.woff2") format("woff2"); font-weight: 300 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("assets/fonts/dm-sans-var.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+:root { --cream: #f9f6f0; --ink: #23241a; --text: #3d3e2c; --muted: #5e5f41; --line: #cfcbb3; --line-soft: #e3dfc8; --olive: #6c6d4c; --rose-text: #b84a63; --serif: "Fraunces", Georgia, serif; --sans: "DM Sans", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--cream); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.top { padding: 72px 0 40px; }
+.top a { color: var(--muted); font-size: 15px; }
+h1 { font-family: var(--serif); font-weight: 300; font-size: clamp(42px, 7vw, 88px); line-height: .98; letter-spacing: -.035em; color: var(--ink); margin: 24px 0 20px; }
+h1 em { color: var(--rose-text); }
+.lead { max-width: 40em; font-size: clamp(17px, 1.6vw, 19px); margin: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 28px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--muted); }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; padding: 0; list-style: none; }
+.toc a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 18px; border-radius: 999px; background: #fff; border: 1px solid var(--line-soft); color: var(--ink); text-decoration: none; font-size: 15px; }
+.toc a:hover { border-color: var(--olive); }
+.pal { padding: 56px 0; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.pal__head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 48px; align-items: end; margin-bottom: 32px; }
+.pal__tag { margin: 0 0 6px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.pal h2 { margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: -.03em; color: var(--ink); }
+.pal__desc { margin: 0; max-width: 32em; }
+.pal__body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; align-items: start; }
+.preview { border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(35,36,26,.5); position: sticky; top: 20px; }
+.preview__hero { background: var(--h); padding: 40px 28px 72px; }
+.preview__t { margin: 0 0 24px; font-family: var(--serif); font-weight: 300; font-size: 34px; line-height: 1.02; letter-spacing: -.03em; color: #f9f6f0; }
+.preview__t em { color: var(--a); }
+.preview__btn { display: inline-block; padding: 10px 20px; border-radius: 999px; background: var(--b); color: var(--bt); font-size: 14px; }
+.preview__cream { background: var(--cream); margin-top: -36px; border-radius: 36px 36px 0 0; padding: 32px 28px 36px; position: relative; }
+.preview__h { margin: 0 0 8px; font-family: var(--serif); font-weight: 300; font-size: 28px; color: var(--ink); }
+.preview__p { margin: 0; font-size: 15px; }
+.sws { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.sw { width: 100%; display: flex; gap: 14px; align-items: center; padding: 10px; border-radius: 18px; background: #fff; border: 1px solid var(--line-soft); text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.sw:hover { border-color: var(--olive); }
+.sw:focus-visible { outline: 3px solid var(--olive); outline-offset: 2px; }
+.chip { flex: none; width: 64px; height: 64px; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(35,36,26,.12); }
+.meta { display: flex; flex-direction: column; min-width: 0; }
+.meta strong { font-weight: 600; color: var(--ink); font-size: 15px; }
+.meta code { font-size: 13px; color: var(--text); overflow-wrap: anywhere; }
+.cr { font-size: 12.5px; color: var(--muted); }
+.lvl { display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 700; color: #fff; background: #8a8b6c; }
+.lvl--aaa { background: #3f5a3a; } .lvl--aa { background: #6c6d4c; } .lvl--fundo { background: #b3ae95; color: var(--ink); }
+.code { margin-top: 20px; }
+.code summary { cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); font-weight: 600; }
+.code pre { margin: 8px 0 0; padding: 20px; border-radius: 18px; background: var(--ink); color: #f9f6f0; overflow-x: auto; font-size: 14px; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; transition: .25s; background: var(--ink); color: #f9f6f0; padding: 12px 20px; border-radius: 999px; font-size: 15px; pointer-events: none; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+footer { padding: 40px 0 64px; border-top: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+@media (max-width: 860px) {
+  .pal__head, .pal__body { grid-template-columns: 1fr; }
+  .preview { position: static; }
+}
+@media (max-width: 520px) { .sws { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <a href="./">← Voltar ao site</a>
+    <h1>Paletas que combinam com <em>creme</em></h1>
+    <p class="lead">Todas foram pensadas sobre o fundo <code>#f9f6f0</code>. Em cada cor aparece o contraste com o creme: assim dá para saber o que pode ser texto e o que deve ficar só como fundo ou detalhe. Toque numa cor para copiar o código.</p>
+    <ul class="legend"><li><b class="lvl lvl--aaa">AAA</b> 7:1 ou mais</li><li><b class="lvl lvl--aa">AA</b> 4,5:1 texto normal</li><li><b class="lvl">AA grande</b> 3:1 títulos e ícones</li><li><b class="lvl lvl--fundo">Fundo</b> abaixo de 3:1</li></ul>
+    <nav aria-label="Paletas"><ul class="toc"><li><a href="#atual">Atual do site</a></li><li><a href="#salvia">Sálvia e terracota</a></li><li><a href="#eucalipto">Eucalipto</a></li><li><a href="#argila">Argila e linho</a></li><li><a href="#lavanda">Oliva e lavanda</a></li><li><a href="#mel">Oliva e mel</a></li><li><a href="#noite">Noite oliva</a></li></ul></nav>
+  </header>
+  <section class="pal" id="atual">
+  <header class="pal__head">
+    <div><p class="pal__tag">Oliva, creme e rosa</p><h2>Atual do site</h2></div>
+    <p class="pal__desc">A paleta que o site usa hoje. O rosa fica só em texto e ícone; o oliva leva a marca.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#5c5d40;--a:#f8b3c2;--b:#f9f6f0;--bt:#23241a">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#b84a63">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#ffffff" aria-label="Copiar #ffffff (Branco)">
+  <span class="chip" style="background:#ffffff"></span>
+  <span class="meta"><strong>Branco</strong><code>--white: #ffffff;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.1:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#23241a" aria-label="Copiar #23241a (Tinta)">
+  <span class="chip" style="background:#23241a"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #23241a;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 14.5:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#3d3e2c" aria-label="Copiar #3d3e2c (Texto)">
+  <span class="chip" style="background:#3d3e2c"></span>
+  <span class="meta"><strong>Texto</strong><code>--text: #3d3e2c;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 10.1:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#4a4b36" aria-label="Copiar #4a4b36 (Texto suave)">
+  <span class="chip" style="background:#4a4b36"></span>
+  <span class="meta"><strong>Texto suave</strong><code>--text-soft: #4a4b36;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 8.3:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#5e5f41" aria-label="Copiar #5e5f41 (Apagado)">
+  <span class="chip" style="background:#5e5f41"></span>
+  <span class="meta"><strong>Apagado</strong><code>--muted: #5e5f41;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 6.1:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#cfcbb3" aria-label="Copiar #cfcbb3 (Linha)">
+  <span class="chip" style="background:#cfcbb3"></span>
+  <span class="meta"><strong>Linha</strong><code>--line: #cfcbb3;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.5:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#e3dfc8" aria-label="Copiar #e3dfc8 (Linha suave)">
+  <span class="chip" style="background:#e3dfc8"></span>
+  <span class="meta"><strong>Linha suave</strong><code>--line-soft: #e3dfc8;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#6c6d4c" aria-label="Copiar #6c6d4c (Oliva)">
+  <span class="chip" style="background:#6c6d4c"></span>
+  <span class="meta"><strong>Oliva</strong><code>--olive: #6c6d4c;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#9fa77a" aria-label="Copiar #9fa77a (Sálvia)">
+  <span class="chip" style="background:#9fa77a"></span>
+  <span class="meta"><strong>Sálvia</strong><code>--sage: #9fa77a;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.4:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#6b7199" aria-label="Copiar #6b7199 (Lavanda)">
+  <span class="chip" style="background:#6b7199"></span>
+  <span class="meta"><strong>Lavanda</strong><code>--lavender: #6b7199;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA grande</b> 4.4:1 · Só títulos e ícones</span></span></button></li><li><button class="sw" type="button" data-copy="#a8613f" aria-label="Copiar #a8613f (Argila)">
+  <span class="chip" style="background:#a8613f"></span>
+  <span class="meta"><strong>Argila</strong><code>--clay: #a8613f;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA grande</b> 4.4:1 · Só títulos e ícones</span></span></button></li><li><button class="sw" type="button" data-copy="#f88ca3" aria-label="Copiar #f88ca3 (Rosa)">
+  <span class="chip" style="background:#f88ca3"></span>
+  <span class="meta"><strong>Rosa</strong><code>--rose: #f88ca3;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.1:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#e27a93" aria-label="Copiar #e27a93 (Rosa ícone)">
+  <span class="chip" style="background:#e27a93"></span>
+  <span class="meta"><strong>Rosa ícone</strong><code>--rose-icon: #e27a93;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.6:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#b84a63" aria-label="Copiar #b84a63 (Rosa texto)">
+  <span class="chip" style="background:#b84a63"></span>
+  <span class="meta"><strong>Rosa texto</strong><code>--rose-text: #b84a63;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 4.6:1 · Texto normal</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --white: #ffffff;
+  --ink: #23241a;
+  --text: #3d3e2c;
+  --text-soft: #4a4b36;
+  --muted: #5e5f41;
+  --line: #cfcbb3;
+  --line-soft: #e3dfc8;
+  --olive: #6c6d4c;
+  --sage: #9fa77a;
+  --lavender: #6b7199;
+  --clay: #a8613f;
+  --rose: #f88ca3;
+  --rose-icon: #e27a93;
+  --rose-text: #b84a63;
+}</code></pre></details>
+</section>
+<section class="pal" id="salvia">
+  <header class="pal__head">
+    <div><p class="pal__tag">Quente, terroso, acolhedor</p><h2>Sálvia e terracota</h2></div>
+    <p class="pal__desc">Troca o rosa por um terracota suave. Combina com madeira, linho e fotos de luz natural.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#6c6d4c;--a:#e7b99c;--b:#f9f6f0;--bt:#2a2a1f">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#8f4f30">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#2a2a1f" aria-label="Copiar #2a2a1f (Tinta)">
+  <span class="chip" style="background:#2a2a1f"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #2a2a1f;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 13.4:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#6c6d4c" aria-label="Copiar #6c6d4c (Oliva)">
+  <span class="chip" style="background:#6c6d4c"></span>
+  <span class="meta"><strong>Oliva</strong><code>--olive: #6c6d4c;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#a3ab82" aria-label="Copiar #a3ab82 (Sálvia)">
+  <span class="chip" style="background:#a3ab82"></span>
+  <span class="meta"><strong>Sálvia</strong><code>--sage: #a3ab82;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#e8dfcc" aria-label="Copiar #e8dfcc (Areia)">
+  <span class="chip" style="background:#e8dfcc"></span>
+  <span class="meta"><strong>Areia</strong><code>--sand: #e8dfcc;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#a8613f" aria-label="Copiar #a8613f (Terracota)">
+  <span class="chip" style="background:#a8613f"></span>
+  <span class="meta"><strong>Terracota</strong><code>--clay: #a8613f;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA grande</b> 4.4:1 · Só títulos e ícones</span></span></button></li><li><button class="sw" type="button" data-copy="#8f4f30" aria-label="Copiar #8f4f30 (Terracota texto)">
+  <span class="chip" style="background:#8f4f30"></span>
+  <span class="meta"><strong>Terracota texto</strong><code>--clay-text: #8f4f30;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.8:1 · Texto normal</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --ink: #2a2a1f;
+  --olive: #6c6d4c;
+  --sage: #a3ab82;
+  --sand: #e8dfcc;
+  --clay: #a8613f;
+  --clay-text: #8f4f30;
+}</code></pre></details>
+</section>
+<section class="pal" id="eucalipto">
+  <header class="pal__head">
+    <div><p class="pal__tag">Fresco, clínico sem ser frio</p><h2>Eucalipto</h2></div>
+    <p class="pal__desc">Um verde mais azulado, que lembra respiração e ar limpo. Bom para fisioterapia respiratória.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#4f6b5a;--a:#f8b3c2;--b:#f9f6f0;--bt:#1f2a25">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#b84a63">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#1f2a25" aria-label="Copiar #1f2a25 (Tinta)">
+  <span class="chip" style="background:#1f2a25"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #1f2a25;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 13.7:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#4f6b5a" aria-label="Copiar #4f6b5a (Eucalipto)">
+  <span class="chip" style="background:#4f6b5a"></span>
+  <span class="meta"><strong>Eucalipto</strong><code>--eucalyptus: #4f6b5a;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.4:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#8fa89a" aria-label="Copiar #8fa89a (Névoa)">
+  <span class="chip" style="background:#8fa89a"></span>
+  <span class="meta"><strong>Névoa</strong><code>--mist: #8fa89a;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.4:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#dde6de" aria-label="Copiar #dde6de (Geada)">
+  <span class="chip" style="background:#dde6de"></span>
+  <span class="meta"><strong>Geada</strong><code>--frost: #dde6de;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#b84a63" aria-label="Copiar #b84a63 (Rosa texto)">
+  <span class="chip" style="background:#b84a63"></span>
+  <span class="meta"><strong>Rosa texto</strong><code>--rose-text: #b84a63;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 4.6:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#f88ca3" aria-label="Copiar #f88ca3 (Rosa)">
+  <span class="chip" style="background:#f88ca3"></span>
+  <span class="meta"><strong>Rosa</strong><code>--rose: #f88ca3;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.1:1 · Só fundo ou detalhe</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --ink: #1f2a25;
+  --eucalyptus: #4f6b5a;
+  --mist: #8fa89a;
+  --frost: #dde6de;
+  --rose-text: #b84a63;
+  --rose: #f88ca3;
+}</code></pre></details>
+</section>
+<section class="pal" id="argila">
+  <header class="pal__head">
+    <div><p class="pal__tag">Spa, premium, tons de pele</p><h2>Argila e linho</h2></div>
+    <p class="pal__desc">Marrons quentes e bege. Passa a sensação de clínica boutique, bem calma.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#6e4c3c;--a:#ecc2b8;--b:#f9f6f0;--bt:#2f2620">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#8e5a46">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#2f2620" aria-label="Copiar #2f2620 (Tinta)">
+  <span class="chip" style="background:#2f2620"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #2f2620;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 13.7:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#6e4c3c" aria-label="Copiar #6e4c3c (Cacau)">
+  <span class="chip" style="background:#6e4c3c"></span>
+  <span class="meta"><strong>Cacau</strong><code>--cocoa: #6e4c3c;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 7.0:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#a87a62" aria-label="Copiar #a87a62 (Argila)">
+  <span class="chip" style="background:#a87a62"></span>
+  <span class="meta"><strong>Argila</strong><code>--clay: #a87a62;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA grande</b> 3.5:1 · Só títulos e ícones</span></span></button></li><li><button class="sw" type="button" data-copy="#ece2d4" aria-label="Copiar #ece2d4 (Linho)">
+  <span class="chip" style="background:#ece2d4"></span>
+  <span class="meta"><strong>Linho</strong><code>--linen: #ece2d4;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#6c6d4c" aria-label="Copiar #6c6d4c (Oliva)">
+  <span class="chip" style="background:#6c6d4c"></span>
+  <span class="meta"><strong>Oliva</strong><code>--olive: #6c6d4c;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#d9a09a" aria-label="Copiar #d9a09a (Blush)">
+  <span class="chip" style="background:#d9a09a"></span>
+  <span class="meta"><strong>Blush</strong><code>--blush: #d9a09a;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.1:1 · Só fundo ou detalhe</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --ink: #2f2620;
+  --cocoa: #6e4c3c;
+  --clay: #a87a62;
+  --linen: #ece2d4;
+  --olive: #6c6d4c;
+  --blush: #d9a09a;
+}</code></pre></details>
+</section>
+<section class="pal" id="lavanda">
+  <header class="pal__head">
+    <div><p class="pal__tag">Sereno, delicado</p><h2>Oliva e lavanda</h2></div>
+    <p class="pal__desc">A lavanda que já está nas variáveis vira o acento no lugar do rosa. Fica elegante e tranquila.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#6c6d4c;--a:#c4c7de;--b:#f9f6f0;--bt:#23241a">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#555b85">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#23241a" aria-label="Copiar #23241a (Tinta)">
+  <span class="chip" style="background:#23241a"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #23241a;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 14.5:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#6c6d4c" aria-label="Copiar #6c6d4c (Oliva)">
+  <span class="chip" style="background:#6c6d4c"></span>
+  <span class="meta"><strong>Oliva</strong><code>--olive: #6c6d4c;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#6b7199" aria-label="Copiar #6b7199 (Lavanda)">
+  <span class="chip" style="background:#6b7199"></span>
+  <span class="meta"><strong>Lavanda</strong><code>--lavender: #6b7199;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA grande</b> 4.4:1 · Só títulos e ícones</span></span></button></li><li><button class="sw" type="button" data-copy="#c4c7de" aria-label="Copiar #c4c7de (Lavanda clara)">
+  <span class="chip" style="background:#c4c7de"></span>
+  <span class="meta"><strong>Lavanda clara</strong><code>--lavender-soft: #c4c7de;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.5:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#e3dfc8" aria-label="Copiar #e3dfc8 (Linha suave)">
+  <span class="chip" style="background:#e3dfc8"></span>
+  <span class="meta"><strong>Linha suave</strong><code>--line-soft: #e3dfc8;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#555b85" aria-label="Copiar #555b85 (Lavanda texto)">
+  <span class="chip" style="background:#555b85"></span>
+  <span class="meta"><strong>Lavanda texto</strong><code>--lavender-text: #555b85;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 6.0:1 · Texto normal</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --ink: #23241a;
+  --olive: #6c6d4c;
+  --lavender: #6b7199;
+  --lavender-soft: #c4c7de;
+  --line-soft: #e3dfc8;
+  --lavender-text: #555b85;
+}</code></pre></details>
+</section>
+<section class="pal" id="mel">
+  <header class="pal__head">
+    <div><p class="pal__tag">Solar, natural</p><h2>Oliva e mel</h2></div>
+    <p class="pal__desc">Um dourado de mel como detalhe. Aquece o oliva e combina com fotos em casa.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#5c5d40;--a:#e8c27a;--b:#f9f6f0;--bt:#23241a">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#8a6420">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#23241a" aria-label="Copiar #23241a (Tinta)">
+  <span class="chip" style="background:#23241a"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #23241a;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 14.5:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#6c6d4c" aria-label="Copiar #6c6d4c (Oliva)">
+  <span class="chip" style="background:#6c6d4c"></span>
+  <span class="meta"><strong>Oliva</strong><code>--olive: #6c6d4c;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#c99a45" aria-label="Copiar #c99a45 (Mel)">
+  <span class="chip" style="background:#c99a45"></span>
+  <span class="meta"><strong>Mel</strong><code>--honey: #c99a45;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.4:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#eeddb8" aria-label="Copiar #eeddb8 (Mel claro)">
+  <span class="chip" style="background:#eeddb8"></span>
+  <span class="meta"><strong>Mel claro</strong><code>--honey-soft: #eeddb8;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.2:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#8a6420" aria-label="Copiar #8a6420 (Mel texto)">
+  <span class="chip" style="background:#8a6420"></span>
+  <span class="meta"><strong>Mel texto</strong><code>--honey-text: #8a6420;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#9fa77a" aria-label="Copiar #9fa77a (Sálvia)">
+  <span class="chip" style="background:#9fa77a"></span>
+  <span class="meta"><strong>Sálvia</strong><code>--sage: #9fa77a;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.4:1 · Só fundo ou detalhe</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --ink: #23241a;
+  --olive: #6c6d4c;
+  --honey: #c99a45;
+  --honey-soft: #eeddb8;
+  --honey-text: #8a6420;
+  --sage: #9fa77a;
+}</code></pre></details>
+</section>
+<section class="pal" id="noite">
+  <header class="pal__head">
+    <div><p class="pal__tag">Escuro, sofisticado</p><h2>Noite oliva</h2></div>
+    <p class="pal__desc">Versão escura para rodapé ou uma seção de destaque. O creme vira o texto.</p>
+  </header>
+  <div class="pal__body">
+    <div class="preview" style="--h:#1d1e15;--a:#f8b3c2;--b:#f9f6f0;--bt:#1d1e15">
+      <div class="preview__hero"><p class="preview__t">Cuidado que chega <em>até você.</em></p><span class="preview__btn">Agendar avaliação →</span></div>
+      <div class="preview__cream"><p class="preview__h">Serviços</p><p class="preview__p">Fisioterapia no conforto da sua casa, com tempo e escuta. <em style="color:#b84a63">Plano feito para você.</em></p></div>
+    </div>
+    <ul class="sws"><li><button class="sw" type="button" data-copy="#1d1e15" aria-label="Copiar #1d1e15 (Noite)">
+  <span class="chip" style="background:#1d1e15"></span>
+  <span class="meta"><strong>Noite</strong><code>--night: #1d1e15;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 15.6:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#2c2d20" aria-label="Copiar #2c2d20 (Tinta)">
+  <span class="chip" style="background:#2c2d20"></span>
+  <span class="meta"><strong>Tinta</strong><code>--ink: #2c2d20;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 13.0:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#45462f" aria-label="Copiar #45462f (Oliva fundo)">
+  <span class="chip" style="background:#45462f"></span>
+  <span class="meta"><strong>Oliva fundo</strong><code>--olive-deep: #45462f;</code>
+  <span class="cr"><b class="lvl lvl--aaa">AAA</b> 9.0:1 · Texto de qualquer tamanho</span></span></button></li><li><button class="sw" type="button" data-copy="#6c6d4c" aria-label="Copiar #6c6d4c (Oliva)">
+  <span class="chip" style="background:#6c6d4c"></span>
+  <span class="meta"><strong>Oliva</strong><code>--olive: #6c6d4c;</code>
+  <span class="cr"><b class="lvl lvl--aa">AA</b> 5.0:1 · Texto normal</span></span></button></li><li><button class="sw" type="button" data-copy="#f9f6f0" aria-label="Copiar #f9f6f0 (Creme)">
+  <span class="chip" style="background:#f9f6f0"></span>
+  <span class="meta"><strong>Creme</strong><code>--cream: #f9f6f0;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 1.0:1 · Só fundo ou detalhe</span></span></button></li><li><button class="sw" type="button" data-copy="#f88ca3" aria-label="Copiar #f88ca3 (Rosa)">
+  <span class="chip" style="background:#f88ca3"></span>
+  <span class="meta"><strong>Rosa</strong><code>--rose: #f88ca3;</code>
+  <span class="cr"><b class="lvl lvl--fundo">Fundo</b> 2.1:1 · Só fundo ou detalhe</span></span></button></li></ul>
+  </div>
+  <details class="code"><summary>Ver variáveis CSS</summary><pre><code>:root {
+  --cream: #f9f6f0;
+  --night: #1d1e15;
+  --ink: #2c2d20;
+  --olive-deep: #45462f;
+  --olive: #6c6d4c;
+  --cream: #f9f6f0;
+  --rose: #f88ca3;
+}</code></pre></details>
+</section>
+  <footer>Contraste calculado pela fórmula da WCAG 2.1, sempre contra o creme <code>#f9f6f0</code>. Na paleta “Noite oliva”, as cores escuras são para fundo, com o creme por cima como texto.</footer>
+</main>
+<div class="toast" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  var toast = document.querySelector('.toast'), t;
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.getAttribute('data-copy');
+      var done = function () { toast.textContent = v + ' copiado'; toast.classList.add('on'); clearTimeout(t); t = setTimeout(function () { toast.classList.remove('on'); }, 1600); };
+      try { navigator.clipboard.writeText(v).then(done, done); } catch (e) { done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
