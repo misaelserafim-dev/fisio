@@ -113,7 +113,7 @@
   var cue = document.querySelector('[data-scroll-cue]');
   var header = document.querySelector('.header');
   var heroText = document.querySelector('.hero__text');
-  var heroFig = document.querySelector('.hero__fig');
+  var heroFig = document.querySelector('.hero__bg');
   var ticking = false;
 
   function resetHero() {
@@ -151,7 +151,7 @@
   updateHero();
 
   /* ---------- Fotos ainda não enviadas ---------- */
-  document.querySelectorAll('.media img, .member__photo img').forEach(function (img) {
+  document.querySelectorAll('.media img, .member__photo img, .hero__bg img').forEach(function (img) {
     function hide() { img.style.visibility = 'hidden'; }
     if (img.complete && img.naturalWidth === 0) hide();
     img.addEventListener('error', hide, { once: true });

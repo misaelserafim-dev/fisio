@@ -1,7 +1,8 @@
 Coloque as fotos nesta pasta com estes nomes (o site já aponta para eles).
 Enquanto uma foto não existir, aparece o espaço reservado com a legenda.
 
-hero.jpg       Foto principal da Noemi (vertical, 4:5 — ex.: 960 x 1200 px)
+hero-bg.jpg    Foto de fundo da abertura, ex.: idoso em casa (horizontal — ex.: 2400 x 1500 px).
+               Deixe o assunto principal do lado direito: o texto fica à esquerda, sobre uma camada verde.
 noemi.jpg      Foto da Noemi para a seção Equipe (vertical, 4:5 — ex.: 800 x 1000 px)
 misael.jpg     Foto do Misael para a seção Equipe (vertical, 4:5 — ex.: 800 x 1000 px)
 og-image.jpg   Imagem que aparece ao compartilhar o link no WhatsApp/redes (1200 x 630 px)
