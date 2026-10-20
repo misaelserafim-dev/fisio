@@ -260,7 +260,9 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
   background: #5c5d40; /* verde-oliva sólido, sem degradê */
   color: var(--cream); overflow: hidden; overflow: clip;
 }
-.hero--card .hero__grid { width: 100%; padding: 200px var(--gutter) clamp(72px, 8vw, 120px); align-items: center; }
+.hero--card .hero__grid { width: 100%; padding: 200px var(--gutter) calc(clamp(72px, 8vw, 120px) + var(--footer-r)); align-items: center; }
+/* Serviços sobe por cima do fim da abertura, com os cantos de cima redondos (mesma curva do rodapé) */
+#servicos { z-index: 1; margin-top: calc(var(--footer-r) * -1); border-radius: var(--footer-r) var(--footer-r) 0 0; }
 .hero--card .hero__text { align-self: center; }
 .hero--card .hero__title { color: var(--cream); }
 .hero--card .hero__title em { color: var(--rose-light); }
@@ -622,7 +624,7 @@ html:has(.footer--card), body:has(.footer--card) { background: var(--white); }
   .hero__curves { display: none; } /* no celular o texto ocupa a tela toda */
   .hero__grid { padding-top: 108px; gap: 44px; }
   .hero--card { margin: 0; border-radius: 0; min-height: 0; }
-  .hero--card .hero__grid { padding: 200px 28px 96px; gap: 120px; }
+  .hero--card .hero__grid { padding: 200px 28px calc(96px + var(--footer-r)); gap: 120px; }
   .hero--card .hero__fig { max-width: 300px; }
   .hero--card .hero__text { padding-bottom: 0; }
   .hero__badge { bottom: 16px; padding: 8px 14px; font-size: 12px; }
