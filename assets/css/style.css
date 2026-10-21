@@ -152,7 +152,7 @@ main, footer { zoom: var(--zoom, 1); } /* botão A+ */
 .btn:hover { background: var(--olive); color: var(--white); }
 .btn--sm { height: 44px; padding: 0 20px; font-size: 14px; gap: 8px; }
 .btn .ic--wa { width: 20px; height: 20px; flex: none; }
-.btn--sm .ic--wa { width: 18px; height: 18px; }
+.btn--sm .ic--wa { width: 15px; height: 15px; }
 .btn:hover .ic--wa { transform: none; }
 .btn .only-desktop { margin-left: -8px; } /* compensa o gap entre "Agendar" e "pelo WhatsApp" */
 .btn--light { background: var(--cream); color: var(--ink); }
