@@ -102,6 +102,8 @@ a { color: inherit; }
 h1, h2, h3, p, figure { margin: 0; }
 em { font-style: italic; }
 :focus-visible { outline: 2px solid var(--rose-text); outline-offset: 4px; }
+/* Texto só para leitores de tela */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 ::selection { background: #f6dbe1; color: var(--ink); }
 
 main, footer { zoom: var(--zoom, 1); } /* botão A+ */
