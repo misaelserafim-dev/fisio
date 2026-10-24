@@ -76,6 +76,7 @@
   <link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/fraunces-var-italic.woff2" as="font" type="font/woff2" crossorigin>
 
+  <link rel="preload" as="image" href="assets/images/hero-bg.webp" imagesrcset="assets/images/hero-bg-960.webp 960w, assets/images/hero-bg.webp 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Aplica preferências salvas antes de desenhar a página (evita salto) -->
@@ -130,9 +131,10 @@
         <path d="M-60,830 C320,770 640,880 960,800 S1320,720 1500,770" fill="none" stroke="#6c6d4c" stroke-opacity=".14" stroke-width="1"/>
       </svg>
 
-      <!-- Foto de fundo: coloque assets/images/hero-bg.jpg (horizontal, ex.: 2400 x 1500). Sem a foto, fica o verde sólido. -->
+      <!-- Foto de fundo em preto e branco, tingida com o verde da marca pelo CSS (mix-blend-mode).
+           Celular baixa a versão de 960 px; computador, a de 1920 px. -->
       <div class="hero__bg" aria-hidden="true">
-        <img src="assets/images/hero-bg.jpg" alt="" width="2400" height="1500" fetchpriority="high">
+        <img src="assets/images/hero-bg.webp" srcset="assets/images/hero-bg-960.webp 960w, assets/images/hero-bg.webp 1920w" sizes="100vw" alt="" width="1920" height="1280" fetchpriority="high" decoding="async">
       </div>
 
       <div class="hero__grid">
